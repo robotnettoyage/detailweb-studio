@@ -2,293 +2,219 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>DetailWeb Studio — Sites Web Premium pour Detailers Automobile</title>
-<meta name="description" content="Agence web spécialisée dans la création de sites internet premium pour les garages et studios de detailing automobile. SEO local, réservation en ligne, design haut de gamme.">
+<meta name="description" content="Agence web spécialisée detailing automobile. Sites premium, SEO local, réservation en ligne.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
 <style>
-:root {
-  --bg-primary:#0A0A0F;
-  --bg-secondary:#141419;
-  --bg-card:#1C1C24;
-  --accent:#F59E0B;
-  --accent-glow:rgba(245,158,11,0.25);
-  --text-primary:#F1F1F1;
-  --text-secondary:#9CA3AF;
-  --text-muted:#6B7280;
-  --border:#2A2A35;
-  --gradient-accent:linear-gradient(135deg,#F59E0B,#D97706);
+/* =========================================================
+   VARIABLES & RESET
+========================================================= */
+:root{
+  --bg:#08080F;--bg2:#0F0F18;--bg3:#141420;--card:#16161F;
+  --accent:#F59E0B;--accent2:#D97706;--glow:rgba(245,158,11,.2);--glow2:rgba(245,158,11,.08);
+  --txt:#F0F0F0;--txt2:#8A8A9A;--txt3:#55556A;--border:#1E1E2E;
+  --grad:linear-gradient(135deg,#F59E0B,#D97706);
+  --font-display:'Bebas Neue',sans-serif;--font:'DM Sans',sans-serif;
+  --ease:cubic-bezier(.16,1,.3,1);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:var(--bg-primary);color:var(--text-primary);font-family:'DM Sans',sans-serif;line-height:1.6;overflow-x:hidden}
-body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");opacity:.4}
-img{max-width:100%;display:block}
-a{color:inherit;text-decoration:none}
-ul{list-style:none}
-h1,h2,h3,h4{font-family:'Bebas Neue',sans-serif;letter-spacing:.05em;line-height:1.1}
-section{position:relative;z-index:1}
+body{background:var(--bg);color:var(--txt);font-family:var(--font);line-height:1.6;overflow-x:hidden;cursor:none}
+a{color:inherit;text-decoration:none}ul{list-style:none}
+img{display:block;max-width:100%}
+h1,h2,h3{font-family:var(--font-display);letter-spacing:.04em;line-height:1.05}
 
-/* UTILS */
-.container{width:100%;max-width:1200px;margin:0 auto;padding:0 1.25rem}
-.accent{color:var(--accent)}
-.section-pad{padding:clamp(4rem,8vw,7rem) 0}
-.section-title{font-size:clamp(2rem,5vw,3.5rem);margin-bottom:.5rem}
-.section-subtitle{color:var(--text-secondary);font-size:clamp(.95rem,2vw,1.1rem);margin-bottom:3rem;max-width:600px}
-.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1.75rem;border-radius:6px;font-family:'DM Sans',sans-serif;font-weight:600;font-size:.95rem;cursor:pointer;transition:all .25s;border:none;text-decoration:none;white-space:nowrap}
-.btn-primary{background:var(--gradient-accent);color:#0A0A0F;position:relative;overflow:hidden}
-.btn-primary::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 0%,rgba(255,255,255,.2) 50%,transparent 100%);transform:translateX(-100%);transition:transform .4s}
-.btn-primary:hover::after{transform:translateX(100%)}
-.btn-primary:hover{box-shadow:0 0 20px var(--accent-glow);transform:translateY(-1px)}
-.btn-outline{background:transparent;color:var(--text-primary);border:1.5px solid var(--accent)}
-.btn-outline:hover{background:var(--accent-glow);box-shadow:0 0 20px var(--accent-glow)}
-.tag{display:inline-block;background:var(--bg-primary);border:1px solid var(--border);color:var(--text-muted);font-size:.72rem;padding:.2rem .6rem;border-radius:4px;font-weight:500}
+/* =========================================================
+   CUSTOM CURSOR
+========================================================= */
+#c-out{position:fixed;width:38px;height:38px;border:1.5px solid var(--accent);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .3s var(--ease),height .3s var(--ease),background .3s,border-color .3s,opacity .4s;opacity:0;mix-blend-mode:screen}
+#c-in{position:fixed;width:6px;height:6px;background:var(--accent);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform .08s,opacity .4s;opacity:0}
+#c-out.hover{width:56px;height:56px;background:var(--glow);border-color:var(--accent)}
+#c-out.click{width:28px;height:28px}
+body:hover #c-out,body:hover #c-in{opacity:1}
 
-/* FADE IN ANIMATION */
-.fade-in{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s ease}
-.fade-in.visible{opacity:1;transform:translateY(0)}
+/* =========================================================
+   SCROLL PROGRESS
+========================================================= */
+#progress{position:fixed;top:0;left:0;height:2px;background:var(--grad);z-index:10000;transform-origin:left;transform:scaleX(0);transition:transform .08s linear}
 
-/* CURSOR */
-#cursor{position:fixed;width:20px;height:20px;border:1.5px solid var(--accent);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform .1s,opacity .3s;mix-blend-mode:screen}
+/* =========================================================
+   UTILS
+========================================================= */
+.wrap{width:100%;max-width:1240px;margin:0 auto;padding:0 1.5rem}
+.sp{padding:clamp(5rem,9vw,8rem) 0}
+.sp-sm{padding:clamp(3rem,5vw,5rem) 0}
+.txt-accent{color:var(--accent)}
+.txt-grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.eyebrow{display:inline-flex;align-items:center;gap:.75rem;color:var(--accent);font-size:.75rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;margin-bottom:1.25rem}
+.eyebrow::before{content:'';display:block;width:32px;height:1.5px;background:var(--grad)}
+.section-title{font-size:clamp(2.2rem,5.5vw,4.8rem);margin-bottom:.75rem}
+.section-sub{color:var(--txt2);font-size:clamp(.9rem,1.8vw,1.05rem);max-width:560px;margin-bottom:3.5rem;line-height:1.7}
 
-/* NAV */
-#navbar{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1.25rem 0;transition:all .35s}
-#navbar.scrolled{background:rgba(20,20,25,.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:.8rem 0}
-.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:1.5rem}
-.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:.08em}
-.nav-logo span{color:var(--accent)}
-.nav-links{display:none;gap:2rem}
-.nav-links a{font-size:.88rem;font-weight:500;color:var(--text-secondary);transition:color .2s;letter-spacing:.02em}
-.nav-links a:hover{color:var(--text-primary)}
-.nav-cta{display:none}
-.hamburger{background:none;border:none;cursor:pointer;padding:.4rem;display:flex;flex-direction:column;gap:5px}
-.hamburger span{display:block;width:24px;height:2px;background:var(--text-primary);transition:all .3s;border-radius:2px}
-.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
-.hamburger.open span:nth-child(2){opacity:0}
-.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-.mobile-menu{position:fixed;inset:0;background:var(--bg-primary);z-index:999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2.5rem;transform:translateX(100%);transition:transform .4s cubic-bezier(.77,0,.18,1)}
-.mobile-menu.open{transform:translateX(0)}
-.mobile-menu a{font-family:'Bebas Neue',sans-serif;font-size:2.5rem;letter-spacing:.08em;color:var(--text-primary);transition:color .2s}
-.mobile-menu a:hover{color:var(--accent)}
-@media(min-width:768px){.nav-links{display:flex}.nav-cta{display:inline-flex}.hamburger{display:none}.mobile-menu{display:none}}
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 2rem;border-radius:8px;font-family:var(--font);font-weight:600;font-size:.95rem;cursor:pointer;transition:all .3s var(--ease);border:none;position:relative;overflow:hidden;white-space:nowrap}
+.btn-gold{background:var(--grad);color:#080810}
+.btn-gold::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.18),transparent);transform:translateX(-100%);transition:transform .5s}
+.btn-gold:hover::after{transform:translateX(100%)}
+.btn-gold:hover{box-shadow:0 0 28px var(--glow),0 0 60px rgba(245,158,11,.1);transform:translateY(-2px)}
+.btn-line{background:transparent;color:var(--txt);border:1.5px solid rgba(245,158,11,.5)}
+.btn-line:hover{border-color:var(--accent);background:var(--glow2);box-shadow:0 0 20px var(--glow);transform:translateY(-2px)}
 
-/* HERO */
-#hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden;padding:6rem 0 4rem}
-.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 40%,rgba(245,158,11,.07) 0%,transparent 70%),radial-gradient(ellipse 60% 80% at 80% 80%,rgba(245,158,11,.04) 0%,transparent 60%)}
-.hero-grid{position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:60px 60px;opacity:.3;mask-image:radial-gradient(ellipse at center,black 30%,transparent 75%)}
-.hero-content{position:relative;z-index:2;max-width:900px}
-.hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.3);color:var(--accent);padding:.4rem 1rem;border-radius:50px;font-size:.82rem;font-weight:600;margin-bottom:1.5rem;letter-spacing:.04em}
-.hero-title{font-size:clamp(2.5rem,8vw,6rem);margin-bottom:1.25rem;line-height:1}
-.hero-sub{color:var(--text-secondary);font-size:clamp(1rem,2.5vw,1.2rem);max-width:580px;margin:0 auto 2.5rem}
-.hero-btns{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-bottom:3rem}
-.hero-stats{display:flex;flex-wrap:wrap;justify-content:center;gap:0;border:1px solid var(--border);border-radius:10px;overflow:hidden;background:var(--bg-card);max-width:700px;margin:0 auto}
-.stat{flex:1;min-width:140px;padding:1rem 1.5rem;text-align:center;border-right:1px solid var(--border)}
-.stat:last-child{border-right:none}
-.stat-num{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:var(--accent);letter-spacing:.05em;line-height:1}
-.stat-label{font-size:.75rem;color:var(--text-muted);margin-top:.2rem}
-.scroll-hint{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.4rem;color:var(--text-muted);font-size:.75rem;animation:bounce 2s infinite}
-.scroll-hint svg{animation:bounce 2s infinite}
-@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
+/* SPLIT TEXT REVEAL */
+.reveal-wrap{overflow:hidden;display:inline-block;vertical-align:bottom}
+.reveal-word{display:inline-block;transform:translateY(105%);opacity:0;transition:transform .7s var(--ease),opacity .5s ease;transition-delay:var(--d,0s)}
+.revealed .reveal-word{transform:translateY(0);opacity:1}
 
-/* PAIN POINTS */
-#probleme{background:var(--bg-secondary)}
-.pain-grid{display:grid;grid-template-columns:1fr;gap:1.25rem;margin-bottom:3rem}
-.pain-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:1.75rem;display:flex;gap:1rem;align-items:flex-start;transition:border-color .3s,transform .3s}
-.pain-card:hover{border-color:var(--accent);transform:translateY(-3px)}
-.pain-icon{flex-shrink:0;width:44px;height:44px;background:rgba(245,158,11,.1);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--accent)}
-.pain-card h3{font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:600;margin-bottom:.4rem;letter-spacing:0}
-.pain-card p{color:var(--text-secondary);font-size:.9rem}
-.pain-cta{text-align:center;color:var(--accent);font-style:italic;font-size:1.15rem;font-weight:500}
+/* FADE UP */
+.fu{opacity:0;transform:translateY(36px);transition:opacity .7s var(--ease),transform .7s var(--ease);transition-delay:var(--d,0s)}
+.fu.vis{opacity:1;transform:translateY(0)}
+
+/* TILT CARD (3D on hover) */
+.tilt{transform-style:preserve-3d;transition:transform .15s ease,box-shadow .3s ease}
+
+/* IMG PLACEHOLDER */
+.img-ph{background:var(--card);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.5rem;color:var(--txt3)}
+.img-ph svg{opacity:.35}
+.img-ph span{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase}
+.img-ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+
+/* =========================================================
+   NAV
+========================================================= */
+#nav{position:fixed;inset:0 0 auto;z-index:1000;padding:1.5rem 0;transition:padding .4s,background .4s,border-color .4s;border-bottom:1px solid transparent}
+#nav.s{padding:.9rem 0;background:rgba(8,8,15,.88);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-color:var(--border)}
+.nav-i{display:flex;align-items:center;justify-content:space-between;gap:2rem}
+.logo{font-family:var(--font-display);font-size:1.65rem;letter-spacing:.1em;line-height:1}
+.logo em{color:var(--accent);font-style:normal}
+.nav-links{display:none;gap:2.5rem;align-items:center}
+.nav-links a{font-size:.82rem;font-weight:500;color:var(--txt2);letter-spacing:.05em;transition:color .2s}
+.nav-links a:hover{color:var(--txt)}
+.hamburger{display:flex;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:.4rem;cursor:none}
+.hamburger span{display:block;width:22px;height:1.5px;background:var(--txt);border-radius:2px;transition:all .35s}
+.hamburger.o span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.hamburger.o span:nth-child(2){opacity:0;transform:scaleX(0)}
+.hamburger.o span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+#mob-menu{position:fixed;inset:0;background:var(--bg);z-index:999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2rem;transform:translateY(-100%);transition:transform .5s var(--ease)}
+#mob-menu.o{transform:translateY(0)}
+#mob-menu a{font-family:var(--font-display);font-size:clamp(2rem,7vw,3.5rem);color:var(--txt);transition:color .2s;cursor:none}
+#mob-menu a:hover{color:var(--accent)}
+@media(min-width:900px){.nav-links{display:flex}.hamburger{display:none}}
+
+/* =========================================================
+   HERO
+========================================================= */
+#hero{min-height:100dvh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:8rem 0 5rem;text-align:center}
+/* aurora orbs */
+.orb{position:absolute;border-radius:50%;filter:blur(90px);pointer-events:none;will-change:transform}
+.orb-1{width:700px;height:700px;background:radial-gradient(circle,rgba(245,158,11,.22) 0%,transparent 65%);top:-200px;left:-150px;animation:o1 14s ease-in-out infinite}
+.orb-2{width:550px;height:550px;background:radial-gradient(circle,rgba(217,119,6,.15) 0%,transparent 65%);bottom:-100px;right:-100px;animation:o2 18s ease-in-out infinite}
+.orb-3{width:400px;height:400px;background:radial-gradient(circle,rgba(245,158,11,.1) 0%,transparent 65%);top:40%;left:60%;animation:o3 11s ease-in-out infinite}
+@keyframes o1{0%,100%{transform:translate(0,0)}33%{transform:translate(80px,-60px)}66%{transform:translate(-50px,70px)}}
+@keyframes o2{0%,100%{transform:translate(0,0)}33%{transform:translate(-70px,50px)}66%{transform:translate(50px,-80px)}}
+@keyframes o3{0%,100%{transform:translate(0,0)}50%{transform:translate(-80px,-60px)}}
+/* grid overlay */
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(245,158,11,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(245,158,11,.04) 1px,transparent 1px);background-size:80px 80px;mask-image:radial-gradient(ellipse 70% 70% at center,black 0%,transparent 100%)}
+.hero-c{position:relative;z-index:2;max-width:1000px;margin:0 auto}
+.hero-badge{display:inline-flex;align-items:center;gap:.6rem;background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.25);color:var(--accent);padding:.45rem 1.1rem;border-radius:50px;font-size:.78rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:2rem}
+.hero-h1{font-size:clamp(3rem,9.5vw,9rem);line-height:.95;margin-bottom:1.75rem}
+.hero-h1 .line{display:block;overflow:hidden}
+.hero-h1 .line-inner{display:block;transform:translateY(100%);animation:slideUp .9s var(--ease) forwards}
+.hero-h1 .line:nth-child(2) .line-inner{animation-delay:.12s}
+.hero-h1 .line:nth-child(3) .line-inner{animation-delay:.22s}
+@keyframes slideUp{to{transform:translateY(0)}}
+.hero-sub{color:var(--txt2);font-size:clamp(.95rem,2vw,1.15rem);max-width:560px;margin:0 auto 2.5rem;opacity:0;animation:fadeIn .8s .5s ease forwards}
+@keyframes fadeIn{to{opacity:1}}
+.hero-btns{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-bottom:3.5rem;opacity:0;animation:fadeIn .8s .65s ease forwards}
+/* stats bar */
+.stats-bar{display:inline-flex;flex-wrap:wrap;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:12px;overflow:hidden;opacity:0;animation:fadeIn .8s .8s ease forwards}
+.stat-item{padding:1.1rem 2rem;border-right:1px solid var(--border);text-align:center}
+.stat-item:last-child{border-right:none}
+.stat-n{font-family:var(--font-display);font-size:2.2rem;color:var(--accent);letter-spacing:.05em;line-height:1;display:block}
+.stat-l{font-size:.72rem;color:var(--txt3);letter-spacing:.08em;text-transform:uppercase;display:block;margin-top:.15rem}
+/* scroll indicator */
+.scroll-ind{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;color:var(--txt3);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;animation:bob 2.5s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
+.scroll-ind svg{stroke:var(--accent)}
+
+/* =========================================================
+   MARQUEE BAND
+========================================================= */
+.band{padding:1.1rem 0;background:var(--accent);overflow:hidden;position:relative;z-index:2}
+.band-inner{display:flex;gap:0;white-space:nowrap;animation:marquee 28s linear infinite}
+.band.rev .band-inner{animation-direction:reverse}
+.band-item{display:inline-flex;align-items:center;gap:1.5rem;padding:0 1.5rem;font-family:var(--font-display);font-size:1rem;letter-spacing:.12em;color:#080810;flex-shrink:0}
+.band-dot{width:6px;height:6px;border-radius:50%;background:#080810;opacity:.4}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* =========================================================
+   PAIN POINTS
+========================================================= */
+#probleme{background:var(--bg)}
+.pain-big{font-size:clamp(5rem,15vw,14rem);font-family:var(--font-display);color:transparent;-webkit-text-stroke:1px rgba(245,158,11,.08);position:absolute;top:-3rem;right:-2rem;line-height:1;pointer-events:none;user-select:none;white-space:nowrap}
+.pain-grid{display:grid;grid-template-columns:1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-bottom:3rem}
+.pain-card{background:var(--bg);padding:2rem 2rem 2rem 1.75rem;display:flex;gap:1.5rem;align-items:flex-start;transition:background .3s}
+.pain-card:hover{background:var(--bg2)}
+.pain-num{font-family:var(--font-display);font-size:3.5rem;color:rgba(245,158,11,.15);line-height:1;flex-shrink:0;width:3rem}
+.pain-body h3{font-family:var(--font);font-size:1rem;font-weight:600;margin-bottom:.5rem;letter-spacing:0}
+.pain-body p{color:var(--txt2);font-size:.88rem;line-height:1.65}
+.pain-sign{font-family:var(--font-display);font-size:clamp(1.5rem,3vw,2.2rem);color:var(--accent);letter-spacing:.05em;text-align:right;padding-top:1rem}
 @media(min-width:768px){.pain-grid{grid-template-columns:repeat(2,1fr)}}
 
-/* EXPERTISE */
-#expertise{}
-.expertise-grid{display:grid;grid-template-columns:1fr;gap:1.25rem}
-.expertise-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:1.75rem;transition:border-color .3s,box-shadow .3s,transform .3s}
-.expertise-card:hover{border-color:var(--accent);box-shadow:0 0 20px var(--accent-glow);transform:translateY(-3px)}
-.expertise-icon{width:48px;height:48px;background:rgba(245,158,11,.1);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;color:var(--accent)}
-.expertise-card h3{font-family:'DM Sans',sans-serif;font-size:1.05rem;font-weight:600;margin-bottom:.5rem;letter-spacing:0}
-.expertise-card p{color:var(--text-secondary);font-size:.9rem}
-@media(min-width:768px){.expertise-grid{grid-template-columns:repeat(2,1fr)}}
-@media(min-width:1024px){.expertise-grid{grid-template-columns:repeat(3,1fr)}}
-
-/* PORTFOLIO */
-#realisations{background:var(--bg-secondary)}
-.portfolio-grid{display:grid;grid-template-columns:1fr;gap:1.5rem}
-.portfolio-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:transform .3s,border-color .3s}
-.portfolio-card:hover{transform:translateY(-4px);border-color:var(--accent)}
-.portfolio-card:hover .portfolio-overlay{opacity:1}
-.portfolio-img{position:relative;aspect-ratio:16/9;background:var(--bg-secondary);overflow:hidden}
-.portfolio-img img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
-.portfolio-img-placeholder{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.5rem;color:var(--text-muted)}
-.portfolio-img-placeholder svg{opacity:.4}
-.portfolio-img-placeholder span{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;opacity:.5}
-.portfolio-overlay{position:absolute;inset:0;background:rgba(10,10,15,.85);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .3s}
-.portfolio-body{padding:1.25rem}
-.portfolio-body h3{font-family:'DM Sans',sans-serif;font-weight:600;font-size:1rem;margin-bottom:.25rem;letter-spacing:0}
-.portfolio-loc{color:var(--text-muted);font-size:.82rem;margin-bottom:.75rem}
-.portfolio-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:.75rem}
-.portfolio-result{color:var(--accent);font-size:.85rem;font-weight:600}
-@media(min-width:768px){.portfolio-grid{grid-template-columns:repeat(2,1fr)}}
-
-/* FEATURES */
-#fonctionnalites{}
-.features-grid{display:grid;grid-template-columns:1fr;gap:1.25rem}
-.feature-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:1.5rem;transition:border-color .3s,transform .3s}
-.feature-card:hover{border-color:var(--accent);transform:translateY(-2px)}
-.feature-card.span2{grid-column:span 1}
-.feature-icon{width:40px;height:40px;background:rgba(245,158,11,.1);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:.75rem;color:var(--accent)}
-.feature-card h3{font-family:'DM Sans',sans-serif;font-size:.95rem;font-weight:600;margin-bottom:.35rem;letter-spacing:0}
-.feature-card p{color:var(--text-secondary);font-size:.85rem}
-@media(min-width:768px){.features-grid{grid-template-columns:repeat(2,1fr)}.feature-card.span2{grid-column:span 2}}
-@media(min-width:1024px){.features-grid{grid-template-columns:repeat(4,1fr)}.feature-card.span2{grid-column:span 2}}
-
-/* BEFORE AFTER */
-#avantapres{background:var(--bg-secondary)}
-.ba-grid{display:grid;grid-template-columns:1fr;gap:1.5rem;max-width:800px;margin:0 auto}
-.ba-card{border-radius:12px;padding:2rem;border:2px solid}
-.ba-before{background:rgba(239,68,68,.05);border-color:rgba(239,68,68,.4)}
-.ba-after{background:rgba(245,158,11,.05);border-color:var(--accent);box-shadow:0 0 30px var(--accent-glow)}
-.ba-label{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:.1em;margin-bottom:1.25rem}
-.ba-before .ba-label{color:#ef4444}
-.ba-after .ba-label{color:var(--accent)}
-.ba-list{display:flex;flex-direction:column;gap:.75rem}
-.ba-item{display:flex;align-items:center;gap:.75rem;font-size:.95rem}
-.ba-item .icon{flex-shrink:0;font-size:1.1rem}
-@media(min-width:768px){.ba-grid{grid-template-columns:repeat(2,1fr)}}
-
-/* PRICING */
-#tarifs{}
-.pricing-grid{display:grid;grid-template-columns:1fr;gap:1.5rem;margin-bottom:1.5rem}
-.pricing-card{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:2rem;position:relative;transition:transform .3s}
-.pricing-card.featured{border-color:var(--accent);box-shadow:0 0 30px var(--accent-glow);transform:none}
-.pricing-card.featured:hover{transform:translateY(-4px)}
-.pricing-card:not(.featured):hover{transform:translateY(-3px)}
-.pricing-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--gradient-accent);color:#0A0A0F;font-size:.72rem;font-weight:700;padding:.25rem .9rem;border-radius:50px;letter-spacing:.08em;white-space:nowrap}
-.pricing-name{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:.08em;margin-bottom:.25rem}
-.pricing-sub{color:var(--text-muted);font-size:.85rem;margin-bottom:1.25rem}
-.pricing-price{font-family:'Bebas Neue',sans-serif;font-size:2.8rem;letter-spacing:.05em;color:var(--accent);line-height:1;margin-bottom:1.5rem}
-.pricing-price span{font-size:1rem;color:var(--text-muted);font-family:'DM Sans',sans-serif;font-weight:400}
-.pricing-divider{height:1px;background:var(--border);margin-bottom:1.5rem}
-.pricing-features{display:flex;flex-direction:column;gap:.7rem;margin-bottom:2rem}
-.pricing-feature{display:flex;align-items:flex-start;gap:.6rem;font-size:.9rem;color:var(--text-secondary)}
-.pricing-feature svg{flex-shrink:0;margin-top:2px;color:var(--accent)}
-.pricing-note{text-align:center;color:var(--text-muted);font-size:.85rem;padding:1rem;background:var(--bg-card);border-radius:10px;border:1px solid var(--border)}
-@media(min-width:1024px){.pricing-grid{grid-template-columns:repeat(3,1fr)}}
-
-/* PROCESS */
-#processus{background:var(--bg-secondary)}
-.process-steps{display:flex;flex-direction:column;gap:0;position:relative}
-.process-step{display:flex;gap:1.5rem;padding:0 0 2.5rem 0;position:relative}
-.process-step:last-child{padding-bottom:0}
-.process-step::before{content:'';position:absolute;left:20px;top:44px;bottom:0;width:2px;background:linear-gradient(180deg,var(--accent),transparent);display:block}
-.process-step:last-child::before{display:none}
-.step-num{flex-shrink:0;width:42px;height:42px;background:var(--gradient-accent);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:1.2rem;color:#0A0A0F;z-index:1}
-.step-body{padding-top:.4rem}
-.step-body h3{font-family:'DM Sans',sans-serif;font-size:1.05rem;font-weight:600;margin-bottom:.4rem;letter-spacing:0}
-.step-body p{color:var(--text-secondary);font-size:.9rem}
-@media(min-width:1024px){.process-steps{flex-direction:row;align-items:flex-start;gap:0}.process-step{flex-direction:column;align-items:center;text-align:center;flex:1;gap:.75rem;padding:0 1rem 0 1rem}.process-step::before{left:auto;top:20px;right:0;bottom:auto;width:calc(100% - 44px);height:2px;background:linear-gradient(90deg,var(--accent),transparent)}.step-body{padding-top:0}}
-
-/* TESTIMONIALS */
-#temoignages{}
-.testi-grid{display:grid;grid-template-columns:1fr;gap:1.25rem}
-.testi-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:1.75rem;transition:border-color .3s}
-.testi-card:hover{border-color:var(--accent)}
-.testi-stars{color:var(--accent);font-size:1rem;margin-bottom:1rem;letter-spacing:.1em}
-.testi-text{color:var(--text-secondary);font-size:.93rem;line-height:1.7;margin-bottom:1.25rem;font-style:italic}
-.testi-text::before{content:'"';color:var(--accent);font-size:1.5rem;line-height:0;vertical-align:-.4em;margin-right:.2rem}
-.testi-author{display:flex;align-items:center;gap:.9rem}
-.testi-avatar{width:44px;height:44px;border-radius:50%;background:var(--bg-secondary);border:2px solid var(--border);overflow:hidden;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:var(--text-muted)}
-.testi-avatar img{width:100%;height:100%;object-fit:cover}
-.testi-name{font-weight:600;font-size:.9rem}
-.testi-garage{color:var(--text-muted);font-size:.8rem}
-@media(min-width:768px){.testi-grid{grid-template-columns:repeat(2,1fr)}}
-
-/* FAQ */
-#faq{background:var(--bg-secondary)}
-.faq-list{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:.75rem}
-.faq-item{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;overflow:hidden;transition:border-color .3s}
-.faq-item.open{border-color:var(--accent)}
-.faq-btn{width:100%;text-align:left;background:none;border:none;padding:1.25rem 1.5rem;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:1rem;color:var(--text-primary);font-family:'DM Sans',sans-serif;font-size:.98rem;font-weight:500}
-.faq-btn svg{flex-shrink:0;transition:transform .3s;color:var(--accent)}
-.faq-item.open .faq-btn svg{transform:rotate(45deg)}
-.faq-body{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s}
-.faq-body-inner{padding:0 1.5rem 1.25rem;color:var(--text-secondary);font-size:.9rem;line-height:1.7}
-.faq-item.open .faq-body{max-height:300px}
-
-/* CTA SECTION */
-#cta-final{background:linear-gradient(135deg,rgba(245,158,11,.12) 0%,rgba(217,119,6,.06) 100%);border-top:1px solid var(--border);border-bottom:1px solid var(--border);text-align:center}
-.cta-badges{display:flex;flex-wrap:wrap;justify-content:center;gap:1.5rem;margin-top:2rem;color:var(--text-secondary);font-size:.9rem}
-.cta-badge-item{display:flex;align-items:center;gap:.4rem}
-.cta-badge-item::before{content:'✓';color:var(--accent);font-weight:700}
-
-/* CONTACT */
-#contact{}
-.contact-grid{display:grid;grid-template-columns:1fr;gap:3rem}
-.contact-info h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;margin-bottom:1.5rem;letter-spacing:0}
-.contact-items{display:flex;flex-direction:column;gap:1rem;margin-bottom:2rem}
-.contact-item{display:flex;align-items:flex-start;gap:.9rem;color:var(--text-secondary);font-size:.93rem}
-.contact-item-icon{width:36px;height:36px;background:rgba(245,158,11,.1);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--accent)}
-.contact-item strong{color:var(--text-primary);font-size:.8rem;display:block;margin-bottom:.1rem}
-.social-links{display:flex;gap:.75rem}
-.social-link{width:40px;height:40px;background:var(--bg-card);border:1px solid var(--border);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--text-muted);transition:all .25s}
-.social-link:hover{border-color:var(--accent);color:var(--accent);box-shadow:0 0 12px var(--accent-glow)}
-.contact-form{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:2rem}
-.form-row{display:grid;grid-template-columns:1fr;gap:1rem;margin-bottom:1rem}
-.form-group{display:flex;flex-direction:column;gap:.4rem}
-.form-group label{font-size:.82rem;font-weight:500;color:var(--text-secondary)}
-.form-group input,.form-group select,.form-group textarea{background:var(--bg-secondary);border:1.5px solid var(--border);border-radius:8px;padding:.75rem 1rem;color:var(--text-primary);font-family:'DM Sans',sans-serif;font-size:.93rem;transition:border-color .25s,box-shadow .25s;outline:none;width:100%}
-.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-glow)}
-.form-group select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236B7280' d='M6 8L1 3h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center}
-.form-group textarea{resize:vertical;min-height:110px}
-@media(min-width:768px){.form-row{grid-template-columns:1fr 1fr}.contact-grid{grid-template-columns:1fr 1.4fr}}
-
-/* FOOTER */
-footer{background:var(--bg-secondary);border-top:1px solid var(--border);padding:4rem 0 0}
-.footer-grid{display:grid;grid-template-columns:1fr;gap:2.5rem;margin-bottom:3rem}
-.footer-brand p{color:var(--text-secondary);font-size:.88rem;margin:1rem 0 1.25rem;max-width:240px;line-height:1.6}
-.footer-col h4{font-family:'DM Sans',sans-serif;font-weight:600;font-size:.9rem;color:var(--text-primary);margin-bottom:1rem;letter-spacing:0}
-.footer-links{display:flex;flex-direction:column;gap:.6rem}
-.footer-links a{color:var(--text-muted);font-size:.88rem;transition:color .2s}
-.footer-links a:hover{color:var(--accent)}
-.footer-bottom{border-top:1px solid var(--border);padding:1.25rem 0;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1rem}
-.footer-bottom p{color:var(--text-muted);font-size:.82rem}
-.footer-bottom-links{display:flex;gap:1.5rem}
-.footer-bottom-links a{color:var(--text-muted);font-size:.82rem;transition:color .2s}
-.footer-bottom-links a:hover{color:var(--accent)}
-@media(min-width:768px){.footer-grid{grid-template-columns:repeat(2,1fr)}}
-@media(min-width:1024px){.footer-grid{grid-template-columns:1.5fr 1fr 1fr 1fr}}
-
-/* ACCENT LINE */
-.section-line{display:flex;align-items:center;gap:1rem;margin-bottom:1rem}
-.section-line::before{content:'';width:40px;height:2px;background:var(--gradient-accent);border-radius:2px}
-.section-tag{color:var(--accent);font-size:.8rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
+/* =========================================================
+   EXPERTISE
+========================================================= */
+#expertise{background:var(--bg2)}
+.bento{display:grid;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:20px;overflow:hidden}
+.bento-cell{background:var(--bg2);padding:2rem;transition:background .35s,transform .2s ease}
+.bento-cell:hover{background:var(--card)}
+.bc-icon{width:48px;height:48px;border-radius:12px;background:rgba(245,158,11,.1);display:flex;align-items:center;justify-content:center;color:var(--accent);margin-bottom:1.25rem}
+.bc-num{font-family:var(--font-display);font-size:5rem;color:rgba(245,158,11,.06);line-height:1;position:absolute;bottom:.5rem;right:1rem}
+.bento-cell{position:relative;overflow:hidden}
+.bento-cell h3{font-family:var(--font);font-size:1.05rem;font-weight:600;margin-bottom:.5rem;letter-spacing:0}
+.bento-cell p{color:var(--txt2);font-size:.87rem;line-height:1.65}
+.bc-big{grid-column:span 1}
+/* grid layouts */
+@media(min-width:768px){
+.bento{grid-template-columns:repeat(3,1fr)}
+.bc-big{grid-column:span 2}
+}
+@media(min-width:1024px){
+.bento{grid-template-columns:repeat(4,1fr)}
+.bc-big{grid-column:span 2}
+.bc-tall{grid-row:span 2}
+}
+/* hover glow border */
+.bento-cell::after{content:'';position:absolute;inset:0;border:1.5px solid transparent;border-radius:0;transition:border-color .3s,box-shadow .3s;pointer-events:none}
+.bento-cell:hover::after{border-color:rgba(245,158,11,.25);box-shadow:inset 0 0 30px rgba(245,158,11,.05)}
 </style>
 </head>
 <body>
 
 <!-- CURSOR -->
-<div id="cursor" aria-hidden="true"></div>
+<div id="c-out"></div>
+<div id="c-in"></div>
+<!-- PROGRESS -->
+<div id="progress"></div>
 
 <!-- MOBILE MENU -->
-<div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Menu navigation">
-  <a href="#expertise" class="mobile-link">Expertise</a>
-  <a href="#realisations" class="mobile-link">Réalisations</a>
-  <a href="#fonctionnalites" class="mobile-link">Fonctionnalités</a>
-  <a href="#tarifs" class="mobile-link">Tarifs</a>
-  <a href="#processus" class="mobile-link">Processus</a>
-  <a href="#faq" class="mobile-link">FAQ</a>
-  <a href="#contact" class="mobile-link">Contact</a>
-  <a href="#contact" class="btn btn-primary">Devis gratuit</a>
+<div id="mob-menu">
+  <a href="#expertise">Expertise</a>
+  <a href="#realisations">Réalisations</a>
+  <a href="#fonctionnalites">Fonctionnalités</a>
+  <a href="#tarifs">Tarifs</a>
+  <a href="#processus">Processus</a>
+  <a href="#faq">FAQ</a>
+  <a href="#contact" class="btn btn-gold" style="font-size:1.1rem;margin-top:1rem">Devis gratuit</a>
 </div>
 
 <!-- NAV -->
-<header id="navbar" role="banner">
-  <div class="container">
-    <div class="nav-inner">
-      <a href="#hero" class="nav-logo" aria-label="DetailWeb Studio — Accueil">DW<span>STUDIO</span></a>
+<header id="nav">
+  <div class="wrap">
+    <div class="nav-i">
+      <a href="#hero" class="logo" aria-label="DetailWeb Studio">DW<em>STUDIO</em></a>
       <nav class="nav-links" aria-label="Navigation principale">
         <a href="#expertise">Expertise</a>
         <a href="#realisations">Réalisations</a>
@@ -298,718 +224,957 @@ footer{background:var(--bg-secondary);border-top:1px solid var(--border);padding
         <a href="#faq">FAQ</a>
         <a href="#contact">Contact</a>
       </nav>
-      <a href="#contact" class="btn btn-primary nav-cta">Devis gratuit</a>
-      <button class="hamburger" id="hamburger" aria-label="Ouvrir le menu" aria-expanded="false">
+      <a href="#contact" class="btn btn-gold" style="display:none" id="nav-cta">Devis gratuit</a>
+      <button class="hamburger" id="hbg" aria-label="Menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </div>
   </div>
 </header>
 
-<!-- HERO -->
-<main>
+<!-- ===================== HERO ===================== -->
 <section id="hero">
-  <div class="hero-bg"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
   <div class="hero-grid"></div>
-  <div class="container">
-    <div class="hero-content fade-in">
-      <div class="hero-badge">🏁 Agence n°1 des sites web pour detailers</div>
-      <h1 class="hero-title">VOTRE GARAGE DE <span class="accent">DETAILING</span> MÉRITE UN SITE WEB À LA HAUTEUR DE VOTRE SAVOIR-FAIRE</h1>
-      <p class="hero-sub">Nous créons des sites web premium qui transforment les visiteurs en clients. Spécialement conçus pour les professionnels du detailing automobile.</p>
+  <div class="wrap">
+    <div class="hero-c">
+      <div class="hero-badge">🏁 &nbsp;Agence n°1 des sites web pour detailers</div>
+      <h1 class="hero-h1">
+        <span class="line"><span class="line-inner">VOTRE GARAGE DE</span></span>
+        <span class="line"><span class="line-inner txt-grad">DETAILING</span></span>
+        <span class="line"><span class="line-inner">MÉRITE MIEUX.</span></span>
+      </h1>
+      <p class="hero-sub">Sites web premium qui transforment les visiteurs en clients — spécialement conçus pour les professionnels de la correction, du céramique et du PPF.</p>
       <div class="hero-btns">
-        <a href="#realisations" class="btn btn-primary">Voir nos réalisations</a>
-        <a href="#tarifs" class="btn btn-outline">Découvrir nos offres</a>
+        <a href="#realisations" class="btn btn-gold magnetic">Voir nos réalisations</a>
+        <a href="#tarifs" class="btn btn-line magnetic">Découvrir nos offres</a>
       </div>
-      <div class="hero-stats">
-        <div class="stat"><div class="stat-num">+120</div><div class="stat-label">Sites créés</div></div>
-        <div class="stat"><div class="stat-num">98%</div><div class="stat-label">Satisfaction</div></div>
-        <div class="stat"><div class="stat-num">Top 3</div><div class="stat-label">Google en 90j</div></div>
-        <div class="stat"><div class="stat-num">FR+</div><div class="stat-label">Toute la France</div></div>
+      <div class="stats-bar">
+        <div class="stat-item"><span class="stat-n" data-count="120" data-prefix="+" data-suffix="">0</span><span class="stat-l">Sites créés</span></div>
+        <div class="stat-item"><span class="stat-n" data-count="98" data-suffix="%">0</span><span class="stat-l">Satisfaction</span></div>
+        <div class="stat-item"><span class="stat-n" data-count="90" data-prefix="" data-suffix="j">0</span><span class="stat-l">Top 3 Google</span></div>
+        <div class="stat-item" style="border:none"><span class="stat-n" style="-webkit-text-fill-color:var(--accent)">FR+</span><span class="stat-l">Toute la France</span></div>
       </div>
     </div>
   </div>
-  <div class="scroll-hint" aria-hidden="true">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+  <div class="scroll-ind" aria-hidden="true">
+    <span>Scroll</span>
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
   </div>
 </section>
 
-<!-- PAIN POINTS -->
-<section id="probleme" class="section-pad">
-  <div class="container">
-    <div class="fade-in">
-      <div class="section-line"><span class="section-tag">Le problème</span></div>
-      <h2 class="section-title">VOTRE TALENT EST DANS LE GARAGE, <span class="accent">PAS SUR GOOGLE</span></h2>
-      <p class="section-subtitle">Vous êtes le meilleur detailer de votre zone. Pourtant, vos concurrents captent vos clients. Voici pourquoi.</p>
+<!-- ===================== MARQUEE 1 ===================== -->
+<div class="band" aria-hidden="true">
+  <div class="band-inner">
+    <!-- 2× pour loop seamless -->
+    <span class="band-item">CORRECTION PEINTURE<span class="band-dot"></span></span>
+    <span class="band-item">CÉRAMIQUE<span class="band-dot"></span></span>
+    <span class="band-item">FILM PPF<span class="band-dot"></span></span>
+    <span class="band-item">POLISH &amp; COMPOUND<span class="band-dot"></span></span>
+    <span class="band-item">INTERIOR DETAILING<span class="band-dot"></span></span>
+    <span class="band-item">SEO LOCAL<span class="band-dot"></span></span>
+    <span class="band-item">RÉSERVATION EN LIGNE<span class="band-dot"></span></span>
+    <span class="band-item">SITES PREMIUM<span class="band-dot"></span></span>
+    <span class="band-item">CORRECTION PEINTURE<span class="band-dot"></span></span>
+    <span class="band-item">CÉRAMIQUE<span class="band-dot"></span></span>
+    <span class="band-item">FILM PPF<span class="band-dot"></span></span>
+    <span class="band-item">POLISH &amp; COMPOUND<span class="band-dot"></span></span>
+    <span class="band-item">INTERIOR DETAILING<span class="band-dot"></span></span>
+    <span class="band-item">SEO LOCAL<span class="band-dot"></span></span>
+    <span class="band-item">RÉSERVATION EN LIGNE<span class="band-dot"></span></span>
+    <span class="band-item">SITES PREMIUM<span class="band-dot"></span></span>
+  </div>
+</div>
+
+<!-- ===================== PAIN POINTS ===================== -->
+<section id="probleme" class="sp" style="position:relative;overflow:hidden">
+  <div class="pain-big" aria-hidden="true">PROBLÈME</div>
+  <div class="wrap">
+    <div class="fu">
+      <div class="eyebrow">Le constat</div>
+      <h2 class="section-title">VOTRE TALENT EST DANS LE GARAGE,<br><span class="txt-accent">PAS SUR GOOGLE.</span></h2>
+      <p class="section-sub">Vous êtes excellent dans votre métier. Pourtant vos concurrents — moins bons que vous — captent vos clients chaque jour. Voici pourquoi.</p>
     </div>
     <div class="pain-grid">
-      <div class="pain-card fade-in">
-        <div class="pain-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-        <div><h3>Des clients perdus chaque jour</h3><p>Vous perdez des clients au profit de concurrents moins bons mais mieux référencés sur Google. Chaque jour sans site performant, c'est du chiffre d'affaires qui part ailleurs.</p></div>
+      <div class="pain-card fu" style="--d:.1s">
+        <div class="pain-num">01</div>
+        <div class="pain-body">
+          <h3>Des clients perdus chaque jour</h3>
+          <p>Vos concurrents moins bons que vous sont mieux référencés. Chaque recherche Google sans votre site = un client qui va ailleurs. C'est du CA qui disparaît sans bruit.</p>
+        </div>
       </div>
-      <div class="pain-card fade-in">
-        <div class="pain-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
-        <div><h3>Instagram ne convertit plus</h3><p>Votre page Facebook ou Instagram ne suffit plus à convertir. Les réseaux sociaux créent de l'engagement, un site professionnel crée des clients qui paient.</p></div>
+      <div class="pain-card fu" style="--d:.2s">
+        <div class="pain-num">02</div>
+        <div class="pain-body">
+          <h3>Instagram ne convertit plus</h3>
+          <p>Les réseaux sociaux créent de la notoriété, pas des clients qui paient. Sans site, vous dépendez d'un algorithme qui vous ignore demain.</p>
+        </div>
       </div>
-      <div class="pain-card fade-in">
-        <div class="pain-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg></div>
-        <div><h3>Zéro temps à y consacrer</h3><p>Vous n'avez pas le temps de gérer un site web en plus de votre activité. Entre les préparations, les poses céramique et les corrections peinture, la journée est déjà pleine.</p></div>
+      <div class="pain-card fu" style="--d:.3s">
+        <div class="pain-num">03</div>
+        <div class="pain-body">
+          <h3>Zéro temps à y consacrer</h3>
+          <p>Entre les préparations, corrections peinture et poses céramique, votre journée est pleine. Vous n'avez pas à gérer un site web — c'est notre job.</p>
+        </div>
       </div>
-      <div class="pain-card fade-in">
-        <div class="pain-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.5 10c-.83 0-1.5-.67-1.5-1.5v-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5z"/><path d="M20.5 10H19V8.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/><path d="M9.5 14c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5S8 21.33 8 20.5v-5c0-.83.67-1.5 1.5-1.5z"/><path d="M3.5 14H5v1.5c0 .83-.67 1.5-1.5 1.5S2 16.33 2 15.5 2.67 14 3.5 14z"/><path d="M14 14.5c0-.83.67-1.5 1.5-1.5h5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5h-5c-.83 0-1.5-.67-1.5-1.5z"/><path d="M14 20.5c0 .83-.67 1.5-1.5 1.5S11 21.33 11 20.5V19h1.5c.83 0 1.5.67 1.5 1.5z"/><path d="M10 9.5C10 8.67 9.33 8 8.5 8h-5C2.67 8 2 8.67 2 9.5S2.67 11 3.5 11h5c.83 0 1.5-.67 1.5-1.5z"/><path d="M10 3.5C10 2.67 9.33 2 8.5 2S7 2.67 7 3.5V5h1.5C9.33 5 10 4.33 10 3.5z"/></svg></div>
-        <div><h3>Un site qui ne vous représente pas</h3><p>Votre site actuel ne reflète pas la qualité de votre travail. Un template gratuit générique ne donnera jamais l'image premium que vos prestations méritent.</p></div>
+      <div class="pain-card fu" style="--d:.4s">
+        <div class="pain-num">04</div>
+        <div class="pain-body">
+          <h3>Un site qui vous fait honte</h3>
+          <p>Un template générique pour un travail d'exception — c'est une contradiction. Vos finitions sont parfaites. Votre site devrait l'être aussi.</p>
+        </div>
       </div>
     </div>
-    <p class="pain-cta fade-in">C'est exactement pour ça qu'on existe.</p>
+    <div class="pain-sign fu" style="--d:.5s">C'est exactement pour ça qu'on existe. →</div>
   </div>
 </section>
 
-<!-- EXPERTISE -->
-<section id="expertise" class="section-pad">
-  <div class="container">
-    <div class="fade-in">
-      <div class="section-line"><span class="section-tag">Pourquoi nous</span></div>
-      <h2 class="section-title">UNE AGENCE QUI PARLE <span class="accent">DETAILING</span></h2>
-      <p class="section-subtitle">Pas une agence généraliste. Une équipe qui connaît votre métier de l'intérieur.</p>
+<!-- ===================== MARQUEE 2 (reverse) ===================== -->
+<div class="band rev" aria-hidden="true" style="background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+  <div class="band-inner" style="animation-duration:22s">
+    <span class="band-item" style="color:var(--accent)">+200% DE LEADS<span class="band-dot" style="background:var(--accent)"></span></span>
+    <span class="band-item" style="color:var(--txt2)">TOP 3 GOOGLE<span class="band-dot"></span></span>
+    <span class="band-item" style="color:var(--accent)">RÉSERVATION 24H/24<span class="band-dot" style="background:var(--accent)"></span></span>
+    <span class="band-item" style="color:var(--txt2)">DESIGN SUR-MESURE<span class="band-dot"></span></span>
+    <span class="band-item" style="color:var(--accent)">SEO LOCAL BÉTON<span class="band-dot" style="background:var(--accent)"></span></span>
+    <span class="band-item" style="color:var(--txt2)">LIVRAISON EN 2 SEMAINES<span class="band-dot"></span></span>
+    <span class="band-item" style="color:var(--accent)">+200% DE LEADS<span class="band-dot" style="background:var(--accent)"></span></span>
+    <span class="band-item" style="color:var(--txt2)">TOP 3 GOOGLE<span class="band-dot"></span></span>
+    <span class="band-item" style="color:var(--accent)">RÉSERVATION 24H/24<span class="band-dot" style="background:var(--accent)"></span></span>
+    <span class="band-item" style="color:var(--txt2)">DESIGN SUR-MESURE<span class="band-dot"></span></span>
+    <span class="band-item" style="color:var(--accent)">SEO LOCAL BÉTON<span class="band-dot" style="background:var(--accent)"></span></span>
+    <span class="band-item" style="color:var(--txt2)">LIVRAISON EN 2 SEMAINES<span class="band-dot"></span></span>
+  </div>
+</div>
+
+<!-- ===================== EXPERTISE ===================== -->
+<section id="expertise" class="sp">
+  <div class="wrap">
+    <div class="fu">
+      <div class="eyebrow">Pourquoi nous</div>
+      <h2 class="section-title">UNE AGENCE QUI PARLE<br><span class="txt-accent">DETAILING.</span></h2>
+      <p class="section-sub">Pas une agence généraliste qui découvre votre secteur le jour J. Une équipe qui connaît la différence entre un polish et un compound.</p>
     </div>
-    <div class="expertise-grid">
-      <div class="expertise-card fade-in">
-        <div class="expertise-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
-        <h3>Spécialistes du secteur</h3>
-        <p>On connaît votre métier : correction peinture, pose céramique, film PPF, polish compound, interior detailing… On parle votre langage et on sait ce que vos clients recherchent.</p>
+    <div class="bento fu" style="--d:.15s">
+      <div class="bento-cell bc-big tilt">
+        <div class="bc-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+        <h3>Spécialistes du secteur detailing</h3>
+        <p>On connaît votre métier de l'intérieur : correction de peinture phase 1, 2, 3 — pose céramique nano — film PPF — polish compound — interior detailing. On parle votre langage dès le premier appel, et ça change tout pour votre SEO et votre contenu.</p>
+        <div class="bc-num">01</div>
       </div>
-      <div class="expertise-card fade-in">
-        <div class="expertise-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg></div>
+      <div class="bento-cell tilt">
+        <div class="bc-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div>
         <h3>Design premium exclusif</h3>
-        <p>Des sites qui reflètent la qualité de votre travail. Esthétique haut de gamme, animations soignées — comme vos finitions sur une carrosserie noire.</p>
+        <p>Aucun template. Un design créé pour vous — aussi soigné que vos finitions sur une carrosserie noire.</p>
+        <div class="bc-num">02</div>
       </div>
-      <div class="expertise-card fade-in">
-        <div class="expertise-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div>
+      <div class="bento-cell tilt">
+        <div class="bc-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div>
         <h3>SEO local béton</h3>
-        <p>Apparaissez en premier sur Google quand un client cherche "detailing + votre ville". On optimise chaque page pour dominer votre zone géographique.</p>
+        <p>"Detailing + votre ville" — vous apparaissez en premier. GMB, schema, contenu optimisé, tout est inclus.</p>
+        <div class="bc-num">03</div>
       </div>
-      <div class="expertise-card fade-in">
-        <div class="expertise-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
-        <h3>Réservation en ligne intégrée</h3>
-        <p>Vos clients réservent directement depuis votre site, 24h/24. Fini les appels perdus et les messages Instagram sans réponse. Votre agenda se remplit automatiquement.</p>
-      </div>
-      <div class="expertise-card fade-in">
-        <div class="expertise-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
-        <h3>Mobile-first absolu</h3>
-        <p>70% de vos clients vous trouvent sur leur téléphone. Nos sites sont parfaits sur tous les écrans — chargement rapide, navigation fluide, réservation en 3 taps.</p>
-      </div>
-      <div class="expertise-card fade-in">
-        <div class="expertise-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
-        <h3>Résultats mesurables</h3>
-        <p>Dashboard de suivi, analytics détaillés, reporting mensuel. Vous voyez exactement ce que votre site vous rapporte : trafic, appels, réservations, CA généré.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PORTFOLIO -->
-<section id="realisations" class="section-pad">
-  <div class="container">
-    <div class="fade-in">
-      <div class="section-line"><span class="section-tag">Portfolio</span></div>
-      <h2 class="section-title">NOS <span class="accent">RÉALISATIONS</span></h2>
-      <p class="section-subtitle">Des sites qui font briller vos clients autant que leurs voitures.</p>
-    </div>
-    <div class="portfolio-grid">
-      <article class="portfolio-card fade-in">
-        <div class="portfolio-img">
-          <div class="portfolio-img-placeholder"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg><span>Aperçu du site</span></div>
-          <img src="" alt="Prestige Auto Detail Paris — Site web detailing premium" loading="lazy">
-          <div class="portfolio-overlay"><a href="#" class="btn btn-primary">Voir le projet</a></div>
-        </div>
-        <div class="portfolio-body">
-          <h3>Prestige Auto Detail</h3>
-          <p class="portfolio-loc">📍 Paris, Île-de-France</p>
-          <div class="portfolio-tags"><span class="tag">Site vitrine</span><span class="tag">Réservation</span><span class="tag">SEO local</span></div>
-          <p class="portfolio-result">↑ +340% de trafic en 6 mois</p>
-        </div>
-      </article>
-      <article class="portfolio-card fade-in">
-        <div class="portfolio-img">
-          <div class="portfolio-img-placeholder"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg><span>Aperçu du site</span></div>
-          <img src="" alt="Black Diamond Detailing Lyon — Site web detailing" loading="lazy">
-          <div class="portfolio-overlay"><a href="#" class="btn btn-primary">Voir le projet</a></div>
-        </div>
-        <div class="portfolio-body">
-          <h3>Black Diamond Detailing</h3>
-          <p class="portfolio-loc">📍 Lyon, Auvergne-Rhône-Alpes</p>
-          <div class="portfolio-tags"><span class="tag">Multi-pages</span><span class="tag">Galerie A/B</span><span class="tag">Blog SEO</span></div>
-          <p class="portfolio-result">↑ +280% de leads qualifiés</p>
-        </div>
-      </article>
-      <article class="portfolio-card fade-in">
-        <div class="portfolio-img">
-          <div class="portfolio-img-placeholder"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg><span>Aperçu du site</span></div>
-          <img src="" alt="CarSpa Premium Bordeaux — Site web detailing automobile" loading="lazy">
-          <div class="portfolio-overlay"><a href="#" class="btn btn-primary">Voir le projet</a></div>
-        </div>
-        <div class="portfolio-body">
-          <h3>CarSpa Premium</h3>
-          <p class="portfolio-loc">📍 Bordeaux, Nouvelle-Aquitaine</p>
-          <div class="portfolio-tags"><span class="tag">E-commerce</span><span class="tag">Avis Google</span><span class="tag">GMB</span></div>
-          <p class="portfolio-result">↑ #1 Google local en 3 mois</p>
-        </div>
-      </article>
-      <article class="portfolio-card fade-in">
-        <div class="portfolio-img">
-          <div class="portfolio-img-placeholder"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg><span>Aperçu du site</span></div>
-          <img src="" alt="Elite Gloss Studio Marseille — Site web detailing" loading="lazy">
-          <div class="portfolio-overlay"><a href="#" class="btn btn-primary">Voir le projet</a></div>
-        </div>
-        <div class="portfolio-body">
-          <h3>Elite Gloss Studio</h3>
-          <p class="portfolio-loc">📍 Marseille, PACA</p>
-          <div class="portfolio-tags"><span class="tag">Réservation</span><span class="tag">PPF / Céramique</span><span class="tag">SEO</span></div>
-          <p class="portfolio-result">↑ +420% de réservations en ligne</p>
-        </div>
-      </article>
-      <article class="portfolio-card fade-in">
-        <div class="portfolio-img">
-          <div class="portfolio-img-placeholder"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg><span>Aperçu du site</span></div>
-          <img src="" alt="PureShine Detailing Nantes — Site web auto" loading="lazy">
-          <div class="portfolio-overlay"><a href="#" class="btn btn-primary">Voir le projet</a></div>
-        </div>
-        <div class="portfolio-body">
-          <h3>PureShine Detailing</h3>
-          <p class="portfolio-loc">📍 Nantes, Pays de la Loire</p>
-          <div class="portfolio-tags"><span class="tag">Site vitrine</span><span class="tag">WhatsApp</span><span class="tag">Analytics</span></div>
-          <p class="portfolio-result">↑ ROI atteint en 2 mois</p>
-        </div>
-      </article>
-      <article class="portfolio-card fade-in">
-        <div class="portfolio-img">
-          <div class="portfolio-img-placeholder"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg><span>Aperçu du site</span></div>
-          <img src="" alt="Ceramic Pro Excellence Toulouse — Site web detailing" loading="lazy">
-          <div class="portfolio-overlay"><a href="#" class="btn btn-primary">Voir le projet</a></div>
-        </div>
-        <div class="portfolio-body">
-          <h3>Ceramic Pro Excellence</h3>
-          <p class="portfolio-loc">📍 Toulouse, Occitanie</p>
-          <div class="portfolio-tags"><span class="tag">Multi-pages</span><span class="tag">Fidélité</span><span class="tag">Google Ads</span></div>
-          <p class="portfolio-result">↑ +190% de chiffre d'affaires</p>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- FEATURES -->
-<section id="fonctionnalites" class="section-pad">
-  <div class="container">
-    <div class="fade-in">
-      <div class="section-line"><span class="section-tag">Ce qui est inclus</span></div>
-      <h2 class="section-title">TOUT CE QU'IL FAUT POUR <span class="accent">DOMINER VOTRE ZONE</span></h2>
-      <p class="section-subtitle">Chaque fonctionnalité a été pensée pour un seul objectif : transformer les visiteurs en clients.</p>
-    </div>
-    <div class="features-grid">
-      <div class="feature-card span2 fade-in">
-        <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"/></svg></div>
-        <h3>Design sur-mesure premium</h3>
-        <p>Votre identité visuelle unique. Aucun template, aucune ressemblance avec un autre site. Un design créé de A à Z pour votre garage, votre image, vos valeurs.</p>
-      </div>
-      <div class="feature-card fade-in">
-        <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
-        <h3>Responsive mobile-first</h3>
-        <p>Parfait sur smartphone, tablette et desktop. Testé sur 50+ appareils.</p>
-      </div>
-      <div class="feature-card fade-in">
-        <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div>
-        <h3>SEO local optimisé</h3>
-        <p>Google My Business, schema markup, balises locales. Vous êtes trouvé en premier.</p>
-      </div>
-      <div class="feature-card fade-in">
-        <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+      <div class="bento-cell tilt">
+        <div class="bc-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div>
         <h3>Réservation en ligne</h3>
-        <p>Agenda intégré, confirmations automatiques, rappels SMS. Zéro friction pour vos clients.</p>
+        <p>Agenda intégré, confirmations automatiques. Vos clients réservent à 23h. Vous dormez, votre agenda se remplit.</p>
+        <div class="bc-num">04</div>
       </div>
-      <div class="feature-card fade-in">
-        <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg></div>
-        <h3>Galerie avant/après</h3>
-        <p>Slider interactif qui montre la transformation. La preuve par l'image de votre expertise.</p>
+      <div class="bento-cell bc-big tilt">
+        <div class="bc-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+        <h3>Résultats mesurables, chaque mois</h3>
+        <p>Dashboard personnel, analytics détaillés, rapport mensuel envoyé automatiquement. Trafic, leads, réservations, CA généré — vous voyez exactement ce que votre site vous rapporte. Pas de fioriture, que des chiffres.</p>
+        <div class="bc-num">05</div>
       </div>
-      <div class="feature-card fade-in">
-        <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"/></svg></div>
-        <h3>Avis Google intégrés</h3>
-        <p>Vos avis Google s'affichent en temps réel. La preuve sociale qui rassure et convertit.</p>
-      </div>
-      <div class="feature-card span2 fade-in">
-        <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10,9 9,9 8,9"/></svg></div>
-        <h3>Page services ultra-détaillée</h3>
-        <p>Une page dédiée à chaque prestation : correction peinture, pose céramique, film PPF, polish compound, detailing intérieur, traitement jantes… Chaque page optimisée SEO pour capter les recherches spécifiques.</p>
-      </div>
-      <div class="feature-card fade-in">
-        <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div>
-        <h3>Blog detailing SEO</h3>
-        <p>Articles de conseils qui attirent du trafic qualifié chaque mois sur le long terme.</p>
-      </div>
-      <div class="feature-card fade-in">
-        <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.62 3.32 2 2 0 0 1 3.62 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.69a16 16 0 0 0 6.4 6.4l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
-        <h3>WhatsApp / Chat intégré</h3>
-        <p>Bouton WhatsApp flottant et chat en direct pour capter les visiteurs indécis.</p>
-      </div>
-      <div class="feature-card fade-in">
-        <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
-        <h3>SSL & RGPD</h3>
-        <p>Certificat SSL, politique de confidentialité, bandeau cookies conforme RGPD inclus.</p>
-      </div>
-      <div class="feature-card fade-in">
-        <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
-        <h3>Hébergement ultra-rapide</h3>
-        <p>Serveurs haute performance, CDN mondial, 99.9% uptime. Votre site ne dort jamais.</p>
-      </div>
-      <div class="feature-card span2 fade-in">
-        <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
-        <h3>Analytics & tableau de bord</h3>
-        <p>Dashboard personnalisé avec vos KPIs : visiteurs, taux de conversion, pages vues, réservations en ligne, leads générés. Rapport mensuel envoyé automatiquement. Vous savez exactement ce que votre investissement vous rapporte.</p>
-      </div>
-      <div class="feature-card fade-in">
-        <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-        <h3>Intégration réseaux sociaux</h3>
-        <p>Feed Instagram live, partage automatique, liens bio optimisés. Vos réseaux et votre site travaillent ensemble.</p>
-      </div>
-      <div class="feature-card fade-in">
-        <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg></div>
-        <h3>Formulaire de devis intelligent</h3>
-        <p>Formulaire multi-étapes qualifiant le besoin client avant même le premier contact.</p>
+      <div class="bento-cell tilt">
+        <div class="bc-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></div>
+        <h3>Mobile-first absolu</h3>
+        <p>70% de vos clients vous cherchent sur mobile. Rapide, fluide, parfait sur chaque écran.</p>
+        <div class="bc-num">06</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- BEFORE / AFTER -->
-<section id="avantapres" class="section-pad">
-  <div class="container">
-    <div class="fade-in" style="text-align:center">
-      <div class="section-line" style="justify-content:center"><span class="section-tag">La différence</span></div>
-      <h2 class="section-title">LE POUVOIR D'UN VRAI <span class="accent">SITE WEB</span></h2>
-      <p class="section-subtitle" style="margin:0 auto 3rem">Voici ce qui sépare un detailer qui rame à trouver des clients d'un detailer dont l'agenda est plein à 3 semaines.</p>
-    </div>
-    <div class="ba-grid fade-in">
-      <div class="ba-card ba-before">
-        <div class="ba-label">❌ AVANT</div>
-        <div class="ba-list">
-          <div class="ba-item"><span class="icon">❌</span> Template gratuit générique introuvable</div>
-          <div class="ba-item"><span class="icon">❌</span> Aucun SEO — invisible sur Google</div>
-          <div class="ba-item"><span class="icon">❌</span> Pas mobile — 70% des visiteurs partent</div>
-          <div class="ba-item"><span class="icon">❌</span> Aucune réservation en ligne</div>
-          <div class="ba-item"><span class="icon">❌</span> Zéro conversion, zéro lead</div>
-          <div class="ba-item"><span class="icon">❌</span> Image qui ne reflète pas la qualité</div>
-        </div>
-      </div>
-      <div class="ba-card ba-after">
-        <div class="ba-label">✅ APRÈS</div>
-        <div class="ba-list">
-          <div class="ba-item"><span class="icon">✅</span> Design unique premium sur-mesure</div>
-          <div class="ba-item"><span class="icon">✅</span> Top 3 Google Maps dans votre ville</div>
-          <div class="ba-item"><span class="icon">✅</span> 100% responsive, rapide, fluide</div>
-          <div class="ba-item"><span class="icon">✅</span> Réservation en ligne 24h/24</div>
-          <div class="ba-item"><span class="icon">✅</span> +200% de leads en moyenne</div>
-          <div class="ba-item"><span class="icon">✅</span> Image premium à la hauteur de votre talent</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- PRICING -->
-<section id="tarifs" class="section-pad">
-  <div class="container">
-    <div class="fade-in" style="text-align:center">
-      <div class="section-line" style="justify-content:center"><span class="section-tag">Tarifs</span></div>
-      <h2 class="section-title">NOS <span class="accent">OFFRES</span></h2>
-      <p class="section-subtitle" style="margin:0 auto 3rem">Des formules adaptées à chaque garage, de l'indépendant au centre multi-sites.</p>
-    </div>
-    <div class="pricing-grid">
-      <div class="pricing-card fade-in">
-        <div class="pricing-name">Starter</div>
-        <div class="pricing-sub">Idéal pour démarrer</div>
-        <div class="pricing-price">1 490€<span> HT</span></div>
-        <div class="pricing-divider"></div>
-        <div class="pricing-features">
-          <div class="pricing-feature"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>Site one-page responsive</div>
-          <div class="pricing-feature"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>Design premium personnalisé</div>
-          <div class="pricing-feature"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>SEO local de base</div>
-          <div class="pricing-feature"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>Formulaire de contact</div>
-          <div class="pricing-feature"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>Certificat SSL inclus</div>
-          <div class="pricing-feature"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>Hébergement 1 an inclus</div>
-          <div class="pricing-feature"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>Livraison en 2 semaines</div>
-        </div>
-        <a href="#contact" class="btn btn-outline" style="width:100%;justify-content:center">Choisir Starter</a>
-      </div>
-      <div class="pricing-card featured fade-in">
-        <div class="pricing-badge">⭐ POPULAIRE</div>
-        <div class="pricing-name">Professional</div>
-        <div class="pricing-sub">Le choix des pros</div>
-        <div class="pricing-price">2 990€<span> HT</span></div>
-        <div class="pricing-divider"></div>
-        <div class="pricing-features">
-          <div class="pricing-feature"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>Tout le pack Starter +</div>
-          <div class="pricing-feature"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>Site multi-pages (5 à 8 pages)</div>
-          <div class="pricing-feature"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>Réservation en ligne intégrée</div>
-          <div class="pricing-feature"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>Galerie avant/après interactive</div>
-          <div class="pricing-feature"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>Intégration avis Google</div>
-          <div class="pricing-feature"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>Blog SEO (3 articles offerts)</div>
-          <div class="pricing-feature"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>SEO local avancé + GMB</div>
-          <div class="pricing-feature"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>Analytics & reporting mensuel</div>
-          <div class="pricing-feature"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>Support 6 mois inclus</div>
-        </div>
-        <a href="#contact" class="btn btn-primary" style="width:100%;justify-content:center">Choisir Professional</a>
-      </div>
-      <div class="pricing-card fade-in">
-        <div class="pricing-name">Enterprise</div>
-        <div class="pricing-sub">Pour les centres premium</div>
-        <div class="pricing-price">Sur devis</div>
-        <div class="pricing-divider"></div>
-        <div class="pricing-features">
-          <div class="pricing-feature"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>Tout le pack Professional +</div>
-          <div class="pricing-feature"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>Site e-commerce (vente produits)</div>
-          <div class="pricing-feature"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>Application de suivi client</div>
-          <div class="pricing-feature"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>Système de fidélité intégré</div>
-          <div class="pricing-feature"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>Multi-langues</div>
-          <div class="pricing-feature"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>Setup campagne Google Ads</div>
-          <div class="pricing-feature"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>Formation équipe incluse</div>
-          <div class="pricing-feature"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>Support prioritaire 12 mois</div>
-          <div class="pricing-feature"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>Account manager dédié</div>
-        </div>
-        <a href="#contact" class="btn btn-outline" style="width:100%;justify-content:center">Nous contacter</a>
-      </div>
-    </div>
-    <p class="pricing-note fade-in">Tous nos tarifs incluent l'hébergement première année, le certificat SSL et la formation à l'utilisation du site. <strong style="color:var(--accent)">Paiement en 2 ou 3 fois possible.</strong></p>
-  </div>
-</section>
-
-<!-- PROCESS -->
-<section id="processus" class="section-pad">
-  <div class="container">
-    <div class="fade-in" style="text-align:center">
-      <div class="section-line" style="justify-content:center"><span class="section-tag">Notre méthode</span></div>
-      <h2 class="section-title">COMMENT <span class="accent">ÇA MARCHE</span></h2>
-      <p class="section-subtitle" style="margin:0 auto 3rem">De l'appel découverte à la mise en ligne, on s'occupe de tout. Vous vous concentrez sur votre métier.</p>
-    </div>
-    <div class="process-steps fade-in">
-      <div class="process-step">
-        <div class="step-num">1</div>
-        <div class="step-body"><h3>📞 Appel découverte gratuit</h3><p>On échange 30 minutes sur votre activité, vos besoins et vos objectifs. Zéro engagement, zéro pression. On vous donne déjà des conseils concrets.</p></div>
-      </div>
-      <div class="process-step">
-        <div class="step-num">2</div>
-        <div class="step-body"><h3>🎨 Maquette & design</h3><p>On crée le design de votre site. Vous validez chaque étape. On ne code rien sans votre accord. Modifications illimitées jusqu'à votre satisfaction.</p></div>
-      </div>
-      <div class="process-step">
-        <div class="step-num">3</div>
-        <div class="step-body"><h3>⚡ Développement</h3><p>On développe votre site avec les meilleures technologies. Rapide, sécurisé, optimisé SEO dès le premier jour. Délais tenus, toujours.</p></div>
-      </div>
-      <div class="process-step">
-        <div class="step-num">4</div>
-        <div class="step-body"><h3>🔍 Tests & optimisation</h3><p>Tests sur tous les appareils, optimisation vitesse, vérification SEO, formulaires, réservation… Rien n'est mis en ligne sans être parfait.</p></div>
-      </div>
-      <div class="process-step">
-        <div class="step-num">5</div>
-        <div class="step-body"><h3>🚀 Mise en ligne & suivi</h3><p>Votre site est live ! On reste à vos côtés avec un suivi mensuel, du support réactif et des optimisations continues pour améliorer vos résultats.</p></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section id="temoignages" class="section-pad" style="background:var(--bg-secondary)">
-  <div class="container">
-    <div class="fade-in" style="text-align:center">
-      <div class="section-line" style="justify-content:center"><span class="section-tag">Avis clients</span></div>
-      <h2 class="section-title">ILS NOUS FONT <span class="accent">CONFIANCE</span></h2>
-      <p class="section-subtitle" style="margin:0 auto 3rem">Des garages de toute la France qui ont transformé leur présence en ligne.</p>
-    </div>
-    <div class="testi-grid">
-      <article class="testi-card fade-in">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">Depuis qu'on a notre nouveau site, on a doublé nos demandes de devis. Les clients trouvent directement nos tarifs de céramique et réservent en ligne. Game changer pour mon activité.</p>
-        <div class="testi-author">
-          <div class="testi-avatar"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><img src="" alt="Photo Marc D." loading="lazy"></div>
-          <div><div class="testi-name">Marc D.</div><div class="testi-garage">Prestige Auto Detail — Paris</div></div>
-        </div>
-      </article>
-      <article class="testi-card fade-in">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">Je cherchais une agence qui comprenne mon métier. Ces gars connaissent la différence entre un polish et un compound. Le site reflète parfaitement ce qu'on fait. Le résultat est incroyable.</p>
-        <div class="testi-author">
-          <div class="testi-avatar"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><img src="" alt="Photo Julien R." loading="lazy"></div>
-          <div><div class="testi-name">Julien R.</div><div class="testi-garage">Black Diamond Detailing — Lyon</div></div>
-        </div>
-      </article>
-      <article class="testi-card fade-in">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">Mon ancien site me faisait honte. Maintenant quand un client demande mon site, je suis fier de le montrer. Et surtout je suis passé de la page 4 à la page 1 sur Google en moins de 2 mois.</p>
-        <div class="testi-author">
-          <div class="testi-avatar"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><img src="" alt="Photo Thomas B." loading="lazy"></div>
-          <div><div class="testi-name">Thomas B.</div><div class="testi-garage">CarSpa Premium — Bordeaux</div></div>
-        </div>
-      </article>
-      <article class="testi-card fade-in">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">ROI en 3 mois. Le système de réservation en ligne m'a fait gagner un temps fou. Plus besoin de répondre au téléphone toute la journée. Je me concentre enfin sur ce que j'aime : le detailing.</p>
-        <div class="testi-author">
-          <div class="testi-avatar"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><img src="" alt="Photo Alexandre M." loading="lazy"></div>
-          <div><div class="testi-name">Alexandre M.</div><div class="testi-garage">Elite Gloss Studio — Marseille</div></div>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section id="faq" class="section-pad">
-  <div class="container">
-    <div class="fade-in" style="text-align:center">
-      <div class="section-line" style="justify-content:center"><span class="section-tag">FAQ</span></div>
-      <h2 class="section-title">QUESTIONS <span class="accent">FRÉQUENTES</span></h2>
-      <p class="section-subtitle" style="margin:0 auto 3rem">Tout ce que vous devez savoir avant de nous contacter.</p>
-    </div>
-    <div class="faq-list fade-in">
-      <div class="faq-item">
-        <button class="faq-btn" aria-expanded="false"><span>Combien de temps faut-il pour créer mon site ?</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
-        <div class="faq-body"><div class="faq-body-inner">En moyenne 2 à 4 semaines selon la formule choisie. Le pack Starter est livré en 2 semaines, le pack Professional en 3-4 semaines. On respecte toujours nos délais — c'est une promesse, pas juste une info.</div></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-btn" aria-expanded="false"><span>Je n'y connais rien en informatique, c'est un problème ?</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
-        <div class="faq-body"><div class="faq-body-inner">Absolument pas. On s'occupe de tout de A à Z. Vous n'avez qu'à valider les étapes et nous fournir vos photos et textes (on peut aussi les créer pour vous). Et on vous forme à la gestion de votre site en fin de projet.</div></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-btn" aria-expanded="false"><span>Est-ce que je pourrai modifier mon site moi-même ?</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
-        <div class="faq-body"><div class="faq-body-inner">Oui, tous nos sites sont livrés avec un back-office simple et intuitif. On vous forme en visio à la prise en main : modifier vos prix, ajouter des photos, mettre à jour vos services. C'est simple comme envoyer un email.</div></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-btn" aria-expanded="false"><span>Qu'est-ce qui est inclus dans l'hébergement ?</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
-        <div class="faq-body"><div class="faq-body-inner">Hébergement haute performance sur serveurs européens, certificat SSL, sauvegardes automatiques quotidiennes, mises à jour de sécurité, surveillance 24h/24 et support technique. Tout est inclus dans la première année.</div></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-btn" aria-expanded="false"><span>Vous faites aussi le référencement Google ?</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
-        <div class="faq-body"><div class="faq-body-inner">Oui, le SEO local est inclus dans toutes nos formules. On optimise votre fiche Google My Business, toutes vos pages, les balises techniques et le contenu pour que vous apparaissiez quand vos clients cherchent "detailing + votre ville".</div></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-btn" aria-expanded="false"><span>Je peux payer en plusieurs fois ?</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
-        <div class="faq-body"><div class="faq-body-inner">Bien sûr. On propose le paiement en 2 ou 3 fois sans frais sur toutes nos formules. 50% à la commande, le reste à la livraison — ou en 3 versements sur 3 mois. On s'adapte à votre situation.</div></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-btn" aria-expanded="false"><span>Que se passe-t-il si je veux arrêter ?</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
-        <div class="faq-body"><div class="faq-body-inner">Vous êtes propriétaire de votre site à 100%. Aucun engagement longue durée. Si vous souhaitez partir, on vous transfère l'intégralité du site, du code et du nom de domaine. Aucun frais de sortie.</div></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-btn" aria-expanded="false"><span>Pourquoi choisir une agence spécialisée detailing ?</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
-        <div class="faq-body"><div class="faq-body-inner">Parce qu'on connaît votre marché, vos clients, votre vocabulaire et ce qui convertit dans votre secteur. Une agence généraliste partira de zéro et créera un site générique. Nous, on crée des sites qui parlent directement à vos clients cibles dès le premier mot.</div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA FINAL -->
-<section id="cta-final" class="section-pad">
-  <div class="container" style="text-align:center">
-    <div class="fade-in">
-      <h2 class="section-title" style="font-size:clamp(2rem,5vw,4rem)">PRÊT À FAIRE <span class="accent">BRILLER</span> VOTRE BUSINESS EN LIGNE ?</h2>
-      <p style="color:var(--text-secondary);font-size:1.1rem;max-width:540px;margin:1rem auto 2.5rem">Réservez votre appel découverte gratuit de 30 minutes. On analyse votre situation et on vous propose une solution sur-mesure — sans engagement.</p>
-      <a href="#contact" class="btn btn-primary" style="font-size:1.1rem;padding:1rem 2.5rem">Réserver mon appel gratuit →</a>
-      <div class="cta-badges">
-        <span class="cta-badge-item">Sans engagement</span>
-        <span class="cta-badge-item">Réponse sous 24h</span>
-        <span class="cta-badge-item">100% gratuit</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="section-pad" style="background:var(--bg-secondary)">
-  <div class="container">
-    <div class="fade-in">
-      <div class="section-line"><span class="section-tag">Contact</span></div>
-      <h2 class="section-title">CONTACTEZ-<span class="accent">NOUS</span></h2>
-      <p class="section-subtitle">Une question ? Un projet ? On répond sous 24h, toujours.</p>
-    </div>
-    <div class="contact-grid fade-in">
-      <div class="contact-info">
-        <h3>On est là pour vous</h3>
-        <div class="contact-items">
-          <div class="contact-item">
-            <div class="contact-item-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
-            <div><strong>Email</strong>contact@detailweb-studio.fr</div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-item-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.62 3.32 2 2 0 0 1 3.62 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.69a16 16 0 0 0 6.4 6.4l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
-            <div><strong>Téléphone</strong>+33 1 XX XX XX XX</div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-item-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-            <div><strong>Adresse</strong>Paris, France — 100% remote</div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-item-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg></div>
-            <div><strong>Horaires</strong>Lun–Ven, 9h–18h</div>
-          </div>
-        </div>
-        <div class="social-links">
-          <a href="#" class="social-link" aria-label="Instagram DetailWeb Studio"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
-          <a href="#" class="social-link" aria-label="LinkedIn DetailWeb Studio"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
-          <a href="#" class="social-link" aria-label="Facebook DetailWeb Studio"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-        </div>
-      </div>
+<!-- ===================== PORTFOLIO ===================== -->
+<section id="realisations" class="sp" style="background:var(--bg2);overflow:hidden">
+  <div class="wrap">
+    <div class="fu" style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-bottom:3rem">
       <div>
-        <form class="contact-form" action="#" method="POST" novalidate>
-          <div class="form-row">
-            <div class="form-group"><label for="nom">Nom complet</label><input type="text" id="nom" name="nom" placeholder="Jean Dupont" required></div>
-            <div class="form-group"><label for="email">Email</label><input type="email" id="email" name="email" placeholder="jean@mongarage.fr" required></div>
+        <div class="eyebrow">Portfolio</div>
+        <h2 class="section-title" style="margin-bottom:0">NOS<br><span class="txt-accent">RÉALISATIONS.</span></h2>
+      </div>
+      <p style="color:var(--txt2);font-size:.88rem;max-width:280px;text-align:right">Glissez pour explorer →<br>Chaque site raconte une histoire de croissance.</p>
+    </div>
+  </div>
+  <!-- Horizontal drag track -->
+  <div class="port-track" id="portTrack">
+    <div class="port-inner">
+      <article class="port-card tilt fu" style="--d:.1s">
+        <div class="port-img img-ph" style="position:relative">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg>
+          <span>Aperçu</span>
+          <img src="" alt="Prestige Auto Detail Paris — site web detailing premium" loading="lazy">
+          <div class="port-hover"><a href="#" class="btn btn-gold" style="font-size:.85rem;padding:.65rem 1.4rem">Voir le projet</a></div>
+        </div>
+        <div class="port-body">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.5rem">
+            <h3>Prestige Auto Detail</h3>
+            <span class="port-result">+340% trafic</span>
           </div>
-          <div class="form-row">
-            <div class="form-group"><label for="tel">Téléphone</label><input type="tel" id="tel" name="tel" placeholder="+33 6 XX XX XX XX"></div>
-            <div class="form-group"><label for="garage">Nom du garage</label><input type="text" id="garage" name="garage" placeholder="Mon Garage Detailing"></div>
+          <p class="port-loc">📍 Paris</p>
+          <div class="port-tags"><span class="tag">Site vitrine</span><span class="tag">Réservation</span><span class="tag">SEO local</span></div>
+        </div>
+      </article>
+      <article class="port-card tilt fu" style="--d:.15s">
+        <div class="port-img img-ph" style="position:relative">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg>
+          <span>Aperçu</span>
+          <img src="" alt="Black Diamond Detailing Lyon — site web" loading="lazy">
+          <div class="port-hover"><a href="#" class="btn btn-gold" style="font-size:.85rem;padding:.65rem 1.4rem">Voir le projet</a></div>
+        </div>
+        <div class="port-body">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.5rem">
+            <h3>Black Diamond Detailing</h3>
+            <span class="port-result">+280% leads</span>
           </div>
-          <div class="form-row">
-            <div class="form-group"><label for="ville">Ville</label><input type="text" id="ville" name="ville" placeholder="Paris"></div>
-            <div class="form-group"><label for="formule">Formule souhaitée</label>
-              <select id="formule" name="formule">
-                <option value="">Choisir une formule</option>
-                <option>Starter — 1 490€</option>
-                <option>Professional — 2 990€</option>
-                <option>Enterprise — Sur devis</option>
-                <option>Je ne sais pas encore</option>
-              </select>
-            </div>
+          <p class="port-loc">📍 Lyon</p>
+          <div class="port-tags"><span class="tag">Multi-pages</span><span class="tag">Blog SEO</span><span class="tag">Galerie</span></div>
+        </div>
+      </article>
+      <article class="port-card tilt fu" style="--d:.2s">
+        <div class="port-img img-ph" style="position:relative">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg>
+          <span>Aperçu</span>
+          <img src="" alt="CarSpa Premium Bordeaux — site web detailing" loading="lazy">
+          <div class="port-hover"><a href="#" class="btn btn-gold" style="font-size:.85rem;padding:.65rem 1.4rem">Voir le projet</a></div>
+        </div>
+        <div class="port-body">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.5rem">
+            <h3>CarSpa Premium</h3>
+            <span class="port-result">#1 Google local</span>
           </div>
-          <div class="form-group" style="margin-bottom:1.5rem"><label for="message">Votre message</label><textarea id="message" name="message" placeholder="Parlez-nous de votre projet, vos prestations, vos objectifs…"></textarea></div>
-          <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;font-size:1rem;padding:.9rem">Envoyer ma demande</button>
-        </form>
+          <p class="port-loc">📍 Bordeaux</p>
+          <div class="port-tags"><span class="tag">E-commerce</span><span class="tag">Avis Google</span></div>
+        </div>
+      </article>
+      <article class="port-card tilt fu" style="--d:.25s">
+        <div class="port-img img-ph" style="position:relative">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg>
+          <span>Aperçu</span>
+          <img src="" alt="Elite Gloss Studio Marseille — site web" loading="lazy">
+          <div class="port-hover"><a href="#" class="btn btn-gold" style="font-size:.85rem;padding:.65rem 1.4rem">Voir le projet</a></div>
+        </div>
+        <div class="port-body">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.5rem">
+            <h3>Elite Gloss Studio</h3>
+            <span class="port-result">+420% réservations</span>
+          </div>
+          <p class="port-loc">📍 Marseille</p>
+          <div class="port-tags"><span class="tag">Réservation</span><span class="tag">PPF / Céramique</span></div>
+        </div>
+      </article>
+      <article class="port-card tilt fu" style="--d:.3s">
+        <div class="port-img img-ph" style="position:relative">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg>
+          <span>Aperçu</span>
+          <img src="" alt="PureShine Detailing Nantes — site web" loading="lazy">
+          <div class="port-hover"><a href="#" class="btn btn-gold" style="font-size:.85rem;padding:.65rem 1.4rem">Voir le projet</a></div>
+        </div>
+        <div class="port-body">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.5rem">
+            <h3>PureShine Detailing</h3>
+            <span class="port-result">ROI en 2 mois</span>
+          </div>
+          <p class="port-loc">📍 Nantes</p>
+          <div class="port-tags"><span class="tag">Site vitrine</span><span class="tag">WhatsApp</span></div>
+        </div>
+      </article>
+      <article class="port-card tilt fu" style="--d:.35s">
+        <div class="port-img img-ph" style="position:relative">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg>
+          <span>Aperçu</span>
+          <img src="" alt="Ceramic Pro Excellence Toulouse — site web" loading="lazy">
+          <div class="port-hover"><a href="#" class="btn btn-gold" style="font-size:.85rem;padding:.65rem 1.4rem">Voir le projet</a></div>
+        </div>
+        <div class="port-body">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.5rem">
+            <h3>Ceramic Pro Excellence</h3>
+            <span class="port-result">+190% CA</span>
+          </div>
+          <p class="port-loc">📍 Toulouse</p>
+          <div class="port-tags"><span class="tag">Multi-pages</span><span class="tag">Google Ads</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FEATURES ===================== -->
+<section id="fonctionnalites" class="sp">
+  <div class="wrap">
+    <div class="fu">
+      <div class="eyebrow">Ce qui est inclus</div>
+      <h2 class="section-title">TOUT CE QU'IL FAUT POUR<br><span class="txt-accent">DOMINER VOTRE ZONE.</span></h2>
+      <p class="section-sub">Chaque fonctionnalité a été pensée pour un seul objectif : transformer les visiteurs en clients qui réservent et paient.</p>
+    </div>
+    <div class="feat-grid fu" style="--d:.1s">
+      <div class="feat-card feat-wide tilt">
+        <div class="feat-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"/></svg></div>
+        <h3>Design sur-mesure premium</h3>
+        <p>Votre identité visuelle unique — aucun template, aucune ressemblance avec un autre site de detailer.</p>
+      </div>
+      <div class="feat-card tilt">
+        <div class="feat-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></div>
+        <h3>Responsive mobile-first</h3>
+        <p>Parfait sur tous les appareils. Chargement en moins de 2s.</p>
+      </div>
+      <div class="feat-card tilt">
+        <div class="feat-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div>
+        <h3>SEO local optimisé</h3>
+        <p>GMB, schema markup, balises locales. Vous dominez votre zone.</p>
+      </div>
+      <div class="feat-card tilt">
+        <div class="feat-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div>
+        <h3>Réservation en ligne</h3>
+        <p>Agenda intégré, confirmations auto, rappels SMS. 24h/24.</p>
+      </div>
+      <div class="feat-card feat-wide tilt">
+        <div class="feat-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg></div>
+        <h3>Galerie avant/après interactive</h3>
+        <p>Slider draggable qui montre la transformation de chaque véhicule. La preuve par l'image de votre expertise correction et détailing.</p>
+      </div>
+      <div class="feat-card tilt">
+        <div class="feat-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 0 0 .95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 0 0-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 0 0-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 0 0-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 0 0 .951-.69l1.519-4.674z"/></svg></div>
+        <h3>Avis Google intégrés</h3>
+        <p>Vos avis s'affichent en temps réel. Preuve sociale maximale.</p>
+      </div>
+      <div class="feat-card tilt">
+        <div class="feat-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.62 3.32 2 2 0 0 1 3.62 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.69a16 16 0 0 0 6.4 6.4l.96-.96a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+        <h3>WhatsApp intégré</h3>
+        <p>Bouton flottant et chat direct. Capturez les indécis instantanément.</p>
+      </div>
+      <div class="feat-card tilt">
+        <div class="feat-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+        <h3>SSL &amp; RGPD</h3>
+        <p>Certificat SSL, politique de confidentialité, cookies conformes.</p>
+      </div>
+      <div class="feat-card tilt">
+        <div class="feat-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+        <h3>Hébergement ultra-rapide</h3>
+        <p>CDN mondial, 99.9% uptime. Votre site ne dort jamais.</p>
+      </div>
+      <div class="feat-card feat-wide tilt">
+        <div class="feat-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+        <h3>Analytics &amp; reporting mensuel</h3>
+        <p>Dashboard KPIs : visiteurs, taux de conversion, réservations, CA généré. Rapport PDF automatique chaque mois.</p>
+      </div>
+      <div class="feat-card tilt">
+        <div class="feat-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div>
+        <h3>Blog SEO detailing</h3>
+        <p>Articles de conseils qui attirent du trafic qualifié durablement.</p>
+      </div>
+      <div class="feat-card tilt">
+        <div class="feat-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div>
+        <h3>Feed Instagram live</h3>
+        <p>Vos réseaux et votre site travaillent ensemble en temps réel.</p>
       </div>
     </div>
   </div>
 </section>
-</main>
 
-<!-- FOOTER -->
-<footer>
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <div class="nav-logo" style="font-size:1.5rem">DW<span style="color:var(--accent)">STUDIO</span></div>
-        <p>L'agence web qui parle le langage du detailing. Sites premium, SEO local, résultats mesurables.</p>
-        <div class="social-links">
-          <a href="#" class="social-link" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
-          <a href="#" class="social-link" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
-          <a href="#" class="social-link" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+<!-- ===================== AVANT / APRÈS ===================== -->
+<section id="avantapres" class="sp" style="background:var(--bg2)">
+  <div class="wrap">
+    <div class="fu" style="text-align:center;max-width:700px;margin:0 auto">
+      <div class="eyebrow" style="justify-content:center">La différence</div>
+      <h2 class="section-title">GLISSEZ POUR VOIR<br><span class="txt-accent">LA TRANSFORMATION.</span></h2>
+      <p class="section-sub" style="margin:0 auto 3rem">Voici ce qui sépare un detailer qui galère à remplir son agenda d'un detailer complet à 3 semaines.</p>
+    </div>
+    <div class="ba-wrap fu" style="--d:.15s">
+      <div class="ba-slider" id="baSlider">
+        <div class="ba-side ba-before">
+          <div class="ba-label-tag" style="color:#ef4444;border-color:rgba(239,68,68,.4)">❌ AVANT</div>
+          <ul class="ba-list">
+            <li><span class="ba-icon" style="color:#ef4444">✗</span> Template gratuit introuvable sur Google</li>
+            <li><span class="ba-icon" style="color:#ef4444">✗</span> Aucun SEO — invisible dans votre ville</li>
+            <li><span class="ba-icon" style="color:#ef4444">✗</span> Pas adapté au mobile</li>
+            <li><span class="ba-icon" style="color:#ef4444">✗</span> Zéro réservation en ligne</li>
+            <li><span class="ba-icon" style="color:#ef4444">✗</span> Image qui ne reflète pas votre talent</li>
+            <li><span class="ba-icon" style="color:#ef4444">✗</span> Aucune mesure de résultats</li>
+          </ul>
         </div>
-      </div>
-      <div class="footer-col">
-        <h4>Navigation</h4>
-        <nav class="footer-links">
-          <a href="#expertise">Expertise</a>
-          <a href="#realisations">Réalisations</a>
-          <a href="#fonctionnalites">Fonctionnalités</a>
-          <a href="#tarifs">Tarifs</a>
-          <a href="#processus">Processus</a>
-          <a href="#faq">FAQ</a>
-          <a href="#contact">Contact</a>
-        </nav>
-      </div>
-      <div class="footer-col">
-        <h4>Nos services</h4>
-        <nav class="footer-links">
-          <a href="#fonctionnalites">Création de site web</a>
-          <a href="#fonctionnalites">SEO local</a>
-          <a href="#fonctionnalites">Réservation en ligne</a>
-          <a href="#fonctionnalites">Maintenance & support</a>
-          <a href="#tarifs">Refonte de site</a>
-          <a href="#tarifs">Pack Google Ads</a>
-        </nav>
-      </div>
-      <div class="footer-col">
-        <h4>Contact</h4>
-        <div class="footer-links">
-          <span style="color:var(--text-muted);font-size:.88rem">contact@detailweb-studio.fr</span>
-          <span style="color:var(--text-muted);font-size:.88rem">+33 1 XX XX XX XX</span>
-          <span style="color:var(--text-muted);font-size:.88rem">Paris, France</span>
-          <span style="color:var(--text-muted);font-size:.88rem">Lun–Ven 9h–18h</span>
+        <div class="ba-side ba-after">
+          <div class="ba-label-tag" style="color:var(--accent);border-color:rgba(245,158,11,.4)">✓ APRÈS</div>
+          <ul class="ba-list">
+            <li><span class="ba-icon" style="color:var(--accent)">✓</span> Design unique premium sur-mesure</li>
+            <li><span class="ba-icon" style="color:var(--accent)">✓</span> Top 3 Google Maps dans votre ville</li>
+            <li><span class="ba-icon" style="color:var(--accent)">✓</span> 100% responsive — chargement &lt;2s</li>
+            <li><span class="ba-icon" style="color:var(--accent)">✓</span> Réservation en ligne 24h/24</li>
+            <li><span class="ba-icon" style="color:var(--accent)">✓</span> +200% de leads en moyenne</li>
+            <li><span class="ba-icon" style="color:var(--accent)">✓</span> Dashboard de suivi mensuel</li>
+          </ul>
+        </div>
+        <div class="ba-handle" id="baHandle">
+          <div class="ba-handle-bar"></div>
+          <div class="ba-handle-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 8l4 4-4 4M6 8l-4 4 4 4"/></svg>
+          </div>
+          <div class="ba-handle-bar"></div>
         </div>
       </div>
     </div>
   </div>
-  <div style="border-top:1px solid var(--border)">
-    <div class="container">
-      <div class="footer-bottom">
-        <p>© 2025 DetailWeb Studio. Tous droits réservés.</p>
-        <div class="footer-bottom-links">
-          <a href="#">Mentions légales</a>
-          <a href="#">Politique de confidentialité</a>
+</section>
+
+<!-- ===================== TARIFS ===================== -->
+<section id="tarifs" class="sp">
+  <div class="wrap">
+    <div class="fu" style="text-align:center;max-width:700px;margin:0 auto">
+      <div class="eyebrow" style="justify-content:center">Investissement</div>
+      <h2 class="section-title">NOS<br><span class="txt-accent">OFFRES.</span></h2>
+      <p class="section-sub" style="margin:0 auto 3.5rem">De l'indépendant au centre multi-sites. Paiement en 2 ou 3 fois sans frais possible.</p>
+    </div>
+    <div class="pricing-row fu" style="--d:.1s">
+      <div class="p-card tilt">
+        <div class="p-name">Starter</div>
+        <div class="p-sub">Idéal pour démarrer</div>
+        <div class="p-price">1 490<span>€ HT</span></div>
+        <div class="p-divider"></div>
+        <ul class="p-feats">
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>Site one-page responsive</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>Design premium personnalisé</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>SEO local de base</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>Formulaire de contact</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>SSL + hébergement 1 an</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>Livraison en 2 semaines</li>
+        </ul>
+        <a href="#contact" class="btn btn-line" style="width:100%;justify-content:center;margin-top:auto">Choisir Starter</a>
+      </div>
+      <!-- Featured: animated gradient border -->
+      <div class="p-card-wrap">
+        <div class="p-card p-card-featured tilt">
+          <div class="p-badge">⭐ POPULAIRE</div>
+          <div class="p-name">Professional</div>
+          <div class="p-sub">Le choix des pros</div>
+          <div class="p-price">2 990<span>€ HT</span></div>
+          <div class="p-divider" style="background:rgba(245,158,11,.2)"></div>
+          <ul class="p-feats">
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>Tout le pack Starter +</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>Site multi-pages (5 à 8 pages)</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>Réservation en ligne intégrée</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>Galerie avant/après</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>Intégration avis Google</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>Blog SEO (3 articles offerts)</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>SEO local avancé + GMB</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>Analytics &amp; reporting mensuel</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>Support 6 mois inclus</li>
+          </ul>
+          <a href="#contact" class="btn btn-gold" style="width:100%;justify-content:center;margin-top:auto">Choisir Professional</a>
         </div>
       </div>
+      <div class="p-card tilt">
+        <div class="p-name">Enterprise</div>
+        <div class="p-sub">Pour les centres premium</div>
+        <div class="p-price" style="font-size:2.2rem">Sur devis</div>
+        <div class="p-divider"></div>
+        <ul class="p-feats">
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>Tout le pack Professional +</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>Site e-commerce</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>App de suivi client</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>Système fidélité intégré</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>Multi-langues</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>Setup Google Ads</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>Formation équipe incluse</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>Support prioritaire 12 mois</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>Account manager dédié</li>
+        </ul>
+        <a href="#contact" class="btn btn-line" style="width:100%;justify-content:center;margin-top:auto">Nous contacter</a>
+      </div>
+    </div>
+    <p class="pricing-note fu" style="--d:.3s">Tous nos tarifs incluent l'hébergement première année, le certificat SSL et la formation à l'utilisation du site.</p>
+  </div>
+</section>
+
+<!-- ===================== PROCESSUS ===================== -->
+<section id="processus" class="sp" style="background:var(--bg2)">
+  <div class="wrap">
+    <div class="fu" style="text-align:center;max-width:700px;margin:0 auto">
+      <div class="eyebrow" style="justify-content:center">Notre méthode</div>
+      <h2 class="section-title">COMMENT<br><span class="txt-accent">ÇA MARCHE.</span></h2>
+      <p class="section-sub" style="margin:0 auto 4rem">De l'appel découverte à la mise en ligne, on s'occupe de tout. Vous vous concentrez sur votre métier.</p>
+    </div>
+    <div class="process-row">
+      <div class="proc-step fu" style="--d:.1s">
+        <div class="proc-num">01</div>
+        <div class="proc-emoji">📞</div>
+        <h3>Appel découverte</h3>
+        <p>30 min pour parler de votre activité, vos besoins et objectifs. Zéro engagement, zéro pression. On vous donne déjà des conseils concrets.</p>
+      </div>
+      <div class="proc-arrow fu" style="--d:.15s">→</div>
+      <div class="proc-step fu" style="--d:.2s">
+        <div class="proc-num">02</div>
+        <div class="proc-emoji">🎨</div>
+        <h3>Maquette &amp; design</h3>
+        <p>On crée le design. Vous validez chaque étape. Rien n'est codé sans votre accord. Modifications illimitées.</p>
+      </div>
+      <div class="proc-arrow fu" style="--d:.25s">→</div>
+      <div class="proc-step fu" style="--d:.3s">
+        <div class="proc-num">03</div>
+        <div class="proc-emoji">⚡</div>
+        <h3>Développement</h3>
+        <p>Technologies de pointe. Rapide, sécurisé, optimisé SEO dès le premier jour. Délais tenus, toujours.</p>
+      </div>
+      <div class="proc-arrow fu" style="--d:.35s">→</div>
+      <div class="proc-step fu" style="--d:.4s">
+        <div class="proc-num">04</div>
+        <div class="proc-emoji">🔍</div>
+        <h3>Tests &amp; optimisation</h3>
+        <p>Tests multi-devices, vitesse, SEO, formulaires. Rien n'est mis en ligne sans être parfait.</p>
+      </div>
+      <div class="proc-arrow fu" style="--d:.45s">→</div>
+      <div class="proc-step fu" style="--d:.5s">
+        <div class="proc-num">05</div>
+        <div class="proc-emoji">🚀</div>
+        <h3>Mise en ligne &amp; suivi</h3>
+        <p>Votre site est live. On reste à vos côtés avec suivi mensuel, support réactif et optimisations continues.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== TÉMOIGNAGES ===================== -->
+<section id="temoignages" class="sp">
+  <div class="wrap">
+    <div class="fu">
+      <div class="eyebrow">Avis clients</div>
+      <h2 class="section-title">ILS NOUS FONT<br><span class="txt-accent">CONFIANCE.</span></h2>
+    </div>
+  </div>
+  <!-- Double marquee de cartes -->
+  <div class="testi-track">
+    <div class="testi-row" style="animation:marquee 40s linear infinite">
+      <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-q">"Depuis qu'on a notre nouveau site, on a doublé nos demandes de devis. Les clients trouvent directement nos tarifs céramique et réservent en ligne. Game changer."</p><div class="testi-auth"><div class="testi-av img-ph" style="position:relative;width:40px;height:40px;border-radius:50%;flex-shrink:0"><img src="" alt="Photo Marc D." loading="lazy"></div><div><strong>Marc D.</strong><span>Prestige Auto Detail — Paris</span></div></div></div>
+      <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-q">"Ces gars connaissent la différence entre un polish et un compound. Le site reflète parfaitement ce qu'on fait. Le résultat est incroyable et le SEO a explosé."</p><div class="testi-auth"><div class="testi-av img-ph" style="position:relative;width:40px;height:40px;border-radius:50%;flex-shrink:0"><img src="" alt="Photo Julien R." loading="lazy"></div><div><strong>Julien R.</strong><span>Black Diamond Detailing — Lyon</span></div></div></div>
+      <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-q">"Mon ancien site me faisait honte. Je suis passé de la page 4 à la page 1 sur Google en 6 semaines. Et maintenant je suis fier de montrer mon site à chaque client."</p><div class="testi-auth"><div class="testi-av img-ph" style="position:relative;width:40px;height:40px;border-radius:50%;flex-shrink:0"><img src="" alt="Photo Thomas B." loading="lazy"></div><div><strong>Thomas B.</strong><span>CarSpa Premium — Bordeaux</span></div></div></div>
+      <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-q">"ROI en 3 mois. La réservation en ligne m'a fait gagner un temps fou. Plus besoin de répondre au téléphone toute la journée. Je me concentre sur ce que j'aime."</p><div class="testi-auth"><div class="testi-av img-ph" style="position:relative;width:40px;height:40px;border-radius:50%;flex-shrink:0"><img src="" alt="Photo Alexandre M." loading="lazy"></div><div><strong>Alexandre M.</strong><span>Elite Gloss Studio — Marseille</span></div></div></div>
+      <!-- repeat for loop -->
+      <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-q">"Depuis qu'on a notre nouveau site, on a doublé nos demandes de devis. Les clients trouvent directement nos tarifs céramique et réservent en ligne. Game changer."</p><div class="testi-auth"><div class="testi-av img-ph" style="position:relative;width:40px;height:40px;border-radius:50%;flex-shrink:0"><img src="" alt="Photo Marc D." loading="lazy"></div><div><strong>Marc D.</strong><span>Prestige Auto Detail — Paris</span></div></div></div>
+      <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-q">"Ces gars connaissent la différence entre un polish et un compound. Le site reflète parfaitement ce qu'on fait. Le résultat est incroyable et le SEO a explosé."</p><div class="testi-auth"><div class="testi-av img-ph" style="position:relative;width:40px;height:40px;border-radius:50%;flex-shrink:0"><img src="" alt="Photo Julien R." loading="lazy"></div><div><strong>Julien R.</strong><span>Black Diamond Detailing — Lyon</span></div></div></div>
+      <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-q">"Mon ancien site me faisait honte. Je suis passé de la page 4 à la page 1 sur Google en 6 semaines. Et maintenant je suis fier de montrer mon site à chaque client."</p><div class="testi-auth"><div class="testi-av img-ph" style="position:relative;width:40px;height:40px;border-radius:50%;flex-shrink:0"><img src="" alt="Photo Thomas B." loading="lazy"></div><div><strong>Thomas B.</strong><span>CarSpa Premium — Bordeaux</span></div></div></div>
+      <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-q">"ROI en 3 mois. La réservation en ligne m'a fait gagner un temps fou. Plus besoin de répondre au téléphone toute la journée. Je me concentre sur ce que j'aime."</p><div class="testi-auth"><div class="testi-av img-ph" style="position:relative;width:40px;height:40px;border-radius:50%;flex-shrink:0"><img src="" alt="Photo Alexandre M." loading="lazy"></div><div><strong>Alexandre M.</strong><span>Elite Gloss Studio — Marseille</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FAQ ===================== -->
+<section id="faq" class="sp" style="background:var(--bg2)">
+  <div class="wrap">
+    <div class="fu" style="display:grid;gap:4rem;align-items:start" id="faq-grid">
+      <div>
+        <div class="eyebrow">FAQ</div>
+        <h2 class="section-title">QUESTIONS<br><span class="txt-accent">FRÉQUENTES.</span></h2>
+        <p class="section-sub">Tout ce que vous devez savoir avant de nous contacter.</p>
+        <a href="#contact" class="btn btn-gold magnetic">Poser ma question →</a>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item"><button class="faq-btn" aria-expanded="false"><span>Combien de temps pour créer mon site ?</span><svg class="faq-ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-body"><div class="faq-inner">2 à 4 semaines selon la formule. Starter : 2 semaines. Professional : 3-4 semaines. On respecte toujours nos délais — c'est une promesse, pas une estimation.</div></div></div>
+        <div class="faq-item"><button class="faq-btn" aria-expanded="false"><span>Je n'y connais rien en informatique ?</span><svg class="faq-ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-body"><div class="faq-inner">Absolument pas un problème. On s'occupe de tout de A à Z. Formation incluse à la livraison. Modifier vos prix, ajouter des photos, mettre à jour vos services — c'est aussi simple qu'envoyer un email.</div></div></div>
+        <div class="faq-item"><button class="faq-btn" aria-expanded="false"><span>Est-ce que je pourrai modifier mon site moi-même ?</span><svg class="faq-ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-body"><div class="faq-inner">Oui. Back-office simple et intuitif livré avec chaque site. Formation en visio incluse. Vous avez le contrôle total sur votre contenu.</div></div></div>
+        <div class="faq-item"><button class="faq-btn" aria-expanded="false"><span>Vous faites aussi le référencement Google ?</span><svg class="faq-ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-body"><div class="faq-inner">Oui, le SEO local est inclus dans toutes nos formules. Google My Business optimisé, balises techniques, contenu local — vous apparaissez quand vos clients cherchent "detailing + votre ville".</div></div></div>
+        <div class="faq-item"><button class="faq-btn" aria-expanded="false"><span>Paiement en plusieurs fois possible ?</span><svg class="faq-ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-body"><div class="faq-inner">Oui. 2 ou 3 fois sans frais sur toutes nos formules. 50% à la commande, le reste à la livraison. Ou en 3 mensualités — on s'adapte.</div></div></div>
+        <div class="faq-item"><button class="faq-btn" aria-expanded="false"><span>Que se passe-t-il si je veux arrêter ?</span><svg class="faq-ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-body"><div class="faq-inner">Vous êtes propriétaire à 100%. Aucun engagement longue durée. On vous transfère le site, le code et le domaine. Zéro frais de sortie.</div></div></div>
+        <div class="faq-item"><button class="faq-btn" aria-expanded="false"><span>Pourquoi une agence spécialisée detailing ?</span><svg class="faq-ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-body"><div class="faq-inner">Parce qu'on connaît votre marché, vos clients, votre vocabulaire et ce qui convertit dans votre secteur. Une agence généraliste partira de zéro. Nous, on sait exactement ce qui fait réserver un client detailing.</div></div></div>
+        <div class="faq-item"><button class="faq-btn" aria-expanded="false"><span>Vous travaillez partout en France ?</span><svg class="faq-ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-body"><div class="faq-inner">Oui, 100% remote. Nos clients sont partout en France, en Belgique et en Suisse. Tout se passe en visio — aussi efficacement qu'en présentiel.</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CTA FINAL ===================== -->
+<section id="cta-final" class="sp" style="position:relative;overflow:hidden;text-align:center">
+  <div class="orb" style="width:600px;height:600px;background:radial-gradient(circle,rgba(245,158,11,.18) 0%,transparent 65%);top:50%;left:50%;transform:translate(-50%,-50%);animation:o1 12s ease-in-out infinite;filter:blur(80px)"></div>
+  <div class="wrap" style="position:relative;z-index:2">
+    <div class="fu">
+      <p style="font-family:var(--font-display);font-size:clamp(4rem,12vw,11rem);line-height:.9;margin-bottom:2rem;color:rgba(245,158,11,.06);position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);white-space:nowrap;pointer-events:none;user-select:none">MAINTENANT</p>
+      <div class="eyebrow" style="justify-content:center">C'est le moment</div>
+      <h2 style="font-family:var(--font-display);font-size:clamp(2.5rem,7vw,6.5rem);line-height:.95;margin-bottom:1.5rem">PRÊT À FAIRE <span class="txt-grad">BRILLER</span><br>VOTRE BUSINESS ?</h2>
+      <p style="color:var(--txt2);font-size:1.1rem;max-width:500px;margin:0 auto 2.5rem;line-height:1.7">Appel découverte de 30 minutes. On analyse votre situation et on vous propose une solution sur-mesure. Sans engagement.</p>
+      <a href="#contact" class="btn btn-gold magnetic" style="font-size:1.1rem;padding:1.1rem 2.8rem">Réserver mon appel gratuit →</a>
+      <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:2rem;margin-top:2rem;color:var(--txt2);font-size:.88rem">
+        <span>✓ Sans engagement</span>
+        <span>✓ Réponse sous 24h</span>
+        <span>✓ 100% gratuit</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CONTACT ===================== -->
+<section id="contact" class="sp" style="background:var(--bg2)">
+  <div class="wrap">
+    <div class="contact-grid fu">
+      <div class="contact-left">
+        <div class="eyebrow">Écrivez-nous</div>
+        <h2 class="section-title">PARLONS DE<br><span class="txt-accent">VOTRE PROJET.</span></h2>
+        <p style="color:var(--txt2);font-size:.93rem;line-height:1.7;margin-bottom:2.5rem;max-width:340px">Une question ? Un projet ? On vous répond sous 24h. Toujours.</p>
+        <div class="c-info">
+          <div class="c-item"><div class="c-ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div><strong>Email</strong><span>contact@detailweb-studio.fr</span></div></div>
+          <div class="c-item"><div class="c-ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.62 3.32 2 2 0 0 1 3.62 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.69a16 16 0 0 0 6.4 6.4l.96-.96a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div><div><strong>Téléphone</strong><span>+33 1 XX XX XX XX</span></div></div>
+          <div class="c-item"><div class="c-ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg></div><div><strong>Disponibilité</strong><span>Lun–Ven 9h–18h</span></div></div>
+        </div>
+        <div class="soc-links">
+          <a href="#" aria-label="Instagram" class="soc-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          <a href="#" aria-label="LinkedIn" class="soc-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+          <a href="#" aria-label="Facebook" class="soc-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        </div>
+      </div>
+      <form class="contact-form" action="#" method="POST" novalidate>
+        <div class="form-row">
+          <div class="fg"><label>Nom complet</label><input type="text" name="nom" placeholder="Jean Dupont" required></div>
+          <div class="fg"><label>Email</label><input type="email" name="email" placeholder="jean@mongarage.fr" required></div>
+        </div>
+        <div class="form-row">
+          <div class="fg"><label>Téléphone</label><input type="tel" name="tel" placeholder="+33 6 XX XX XX XX"></div>
+          <div class="fg"><label>Nom du garage</label><input type="text" name="garage" placeholder="Mon Garage Detailing"></div>
+        </div>
+        <div class="form-row">
+          <div class="fg"><label>Ville</label><input type="text" name="ville" placeholder="Paris"></div>
+          <div class="fg"><label>Formule souhaitée</label>
+            <select name="formule">
+              <option value="">Choisir…</option>
+              <option>Starter — 1 490€</option>
+              <option>Professional — 2 990€</option>
+              <option>Enterprise — Sur devis</option>
+              <option>Je ne sais pas encore</option>
+            </select>
+          </div>
+        </div>
+        <div class="fg" style="margin-bottom:1.5rem"><label>Votre message</label><textarea name="message" placeholder="Parlez-nous de votre projet, vos prestations, vos objectifs…"></textarea></div>
+        <button type="submit" class="btn btn-gold magnetic" style="width:100%;justify-content:center;font-size:1rem;padding:.95rem">Envoyer ma demande</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="logo" style="margin-bottom:1rem">DW<em>STUDIO</em></div>
+        <p>L'agence web qui parle le langage du detailing. Sites premium, SEO local, résultats mesurables.</p>
+        <div class="soc-links" style="margin-top:1.25rem">
+          <a href="#" aria-label="Instagram" class="soc-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/></svg></a>
+          <a href="#" aria-label="LinkedIn" class="soc-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+          <a href="#" aria-label="Facebook" class="soc-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        </div>
+      </div>
+      <div class="foot-col"><h4>Navigation</h4><a href="#expertise">Expertise</a><a href="#realisations">Réalisations</a><a href="#fonctionnalites">Fonctionnalités</a><a href="#tarifs">Tarifs</a><a href="#processus">Processus</a><a href="#faq">FAQ</a></div>
+      <div class="foot-col"><h4>Services</h4><a href="#fonctionnalites">Création de site</a><a href="#fonctionnalites">SEO local</a><a href="#fonctionnalites">Réservation en ligne</a><a href="#fonctionnalites">Maintenance</a><a href="#tarifs">Refonte de site</a></div>
+      <div class="foot-col"><h4>Contact</h4><span>contact@detailweb-studio.fr</span><span>+33 1 XX XX XX XX</span><span>Paris, France</span><span>Lun–Ven 9h–18h</span></div>
+    </div>
+    <div class="foot-bottom">
+      <p>© 2025 DetailWeb Studio. Tous droits réservés.</p>
+      <div><a href="#">Mentions légales</a><a href="#">Politique de confidentialité</a></div>
     </div>
   </div>
 </footer>
 
-<script>
-// CURSOR
-const cursor = document.getElementById('cursor');
-if(window.matchMedia('(pointer:fine)').matches){
-  document.addEventListener('mousemove',e=>{cursor.style.left=e.clientX+'px';cursor.style.top=e.clientY+'px'});
-  document.addEventListener('mouseenter',()=>cursor.style.opacity='1');
-  document.addEventListener('mouseleave',()=>cursor.style.opacity='0');
-} else { cursor.style.display='none'; }
+<style>
+/* =========================================================
+   CSS SUITE — Portfolio, Features, BA, Pricing, Process, Testimonials, FAQ, Contact, Footer
+========================================================= */
+/* PORTFOLIO */
+.port-track{overflow-x:auto;cursor:grab;-webkit-overflow-scrolling:touch;padding:0 1.5rem 2rem;scrollbar-width:none}
+.port-track::-webkit-scrollbar{display:none}
+.port-track:active{cursor:grabbing}
+.port-inner{display:flex;gap:1.5rem;width:max-content;padding-bottom:.5rem}
+.port-card{width:340px;flex-shrink:0;background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:border-color .3s,transform .3s var(--ease)}
+.port-card:hover{border-color:rgba(245,158,11,.4)}
+.port-img{height:220px;background:var(--bg3);position:relative;overflow:hidden}
+.port-hover{position:absolute;inset:0;background:rgba(8,8,15,.8);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .3s}
+.port-card:hover .port-hover{opacity:1}
+.port-body{padding:1.25rem}
+.port-body h3{font-family:var(--font);font-size:.98rem;font-weight:600;letter-spacing:0}
+.port-loc{color:var(--txt3);font-size:.8rem;margin:.25rem 0 .75rem}
+.port-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:.75rem}
+.tag{display:inline-block;background:rgba(255,255,255,.04);border:1px solid var(--border);color:var(--txt3);font-size:.7rem;padding:.2rem .6rem;border-radius:4px}
+.port-result{color:var(--accent);font-size:.8rem;font-weight:700;white-space:nowrap}
 
-// NAVBAR SCROLL
-const navbar = document.getElementById('navbar');
+/* FEATURES */
+.feat-grid{display:grid;grid-template-columns:1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:20px;overflow:hidden}
+.feat-card{background:var(--bg);padding:2rem;position:relative;overflow:hidden;transition:background .3s}
+.feat-card:hover{background:var(--card)}
+.feat-card::before{content:'';position:absolute;inset:0;border:1px solid transparent;transition:border-color .3s;pointer-events:none}
+.feat-card:hover::before{border-color:rgba(245,158,11,.15)}
+.feat-icon{width:44px;height:44px;background:rgba(245,158,11,.1);border-radius:11px;display:flex;align-items:center;justify-content:center;color:var(--accent);margin-bottom:1rem}
+.feat-card h3{font-family:var(--font);font-size:.98rem;font-weight:600;margin-bottom:.4rem;letter-spacing:0}
+.feat-card p{color:var(--txt2);font-size:.85rem;line-height:1.65}
+.feat-wide{grid-column:span 1}
+@media(min-width:640px){.feat-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1024px){.feat-grid{grid-template-columns:repeat(4,1fr)}.feat-wide{grid-column:span 2}}
+
+/* BEFORE/AFTER */
+.ba-wrap{max-width:860px;margin:0 auto}
+.ba-slider{position:relative;display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--border);border-radius:20px;overflow:hidden;min-height:320px}
+.ba-side{padding:2.5rem 2rem;position:relative}
+.ba-before{background:rgba(239,68,68,.04)}
+.ba-after{background:rgba(245,158,11,.04)}
+.ba-label-tag{font-family:var(--font-display);font-size:1.3rem;letter-spacing:.08em;border:1px solid;display:inline-block;padding:.2rem .8rem;border-radius:6px;margin-bottom:1.5rem}
+.ba-list{display:flex;flex-direction:column;gap:.9rem}
+.ba-list li{display:flex;align-items:flex-start;gap:.7rem;font-size:.92rem;color:var(--txt2)}
+.ba-icon{flex-shrink:0;font-style:normal;font-weight:700;font-size:1rem}
+.ba-handle{position:absolute;top:0;bottom:0;left:50%;transform:translateX(-50%);width:40px;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:ew-resize;z-index:10;gap:4px}
+.ba-handle-bar{width:2px;flex:1;background:linear-gradient(180deg,transparent,var(--accent),transparent)}
+.ba-handle-btn{width:36px;height:36px;background:var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#080810;box-shadow:0 0 20px var(--glow)}
+
+/* PRICING */
+.pricing-row{display:grid;grid-template-columns:1fr;gap:1.5rem;align-items:stretch}
+.p-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2rem;display:flex;flex-direction:column;gap:.5rem;transition:transform .3s var(--ease),box-shadow .3s}
+.p-card:hover{transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,.4)}
+.p-card-wrap{position:relative;padding:2px;background:linear-gradient(135deg,#F59E0B,#92400E,#F59E0B);background-size:200% 200%;animation:gradShift 4s ease infinite;border-radius:18px}
+@keyframes gradShift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.p-card-featured{border:none;background:var(--card);border-radius:14px}
+.p-badge{background:var(--grad);color:#080810;font-size:.7rem;font-weight:700;padding:.25rem .8rem;border-radius:50px;letter-spacing:.1em;align-self:flex-start;margin-bottom:.5rem}
+.p-name{font-family:var(--font-display);font-size:1.8rem;letter-spacing:.08em}
+.p-sub{color:var(--txt3);font-size:.85rem;margin-bottom:.5rem}
+.p-price{font-family:var(--font-display);font-size:3rem;color:var(--accent);letter-spacing:.03em;line-height:1}
+.p-price span{font-family:var(--font);font-size:.9rem;color:var(--txt3);font-weight:400}
+.p-divider{height:1px;background:var(--border);margin:.75rem 0}
+.p-feats{display:flex;flex-direction:column;gap:.6rem;flex:1;margin-bottom:1.5rem}
+.p-feats li{display:flex;align-items:flex-start;gap:.6rem;font-size:.87rem;color:var(--txt2)}
+.p-feats li svg{flex-shrink:0;color:var(--accent);margin-top:2px}
+.pricing-note{text-align:center;color:var(--txt3);font-size:.85rem;margin-top:2rem;padding:1rem;background:var(--card);border:1px solid var(--border);border-radius:10px}
+@media(min-width:900px){.pricing-row{grid-template-columns:repeat(3,1fr)}}
+
+/* PROCESS */
+.process-row{display:flex;flex-direction:column;gap:2.5rem;position:relative}
+.proc-step{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:2rem;flex:1;transition:border-color .3s,transform .3s var(--ease)}
+.proc-step:hover{border-color:rgba(245,158,11,.35);transform:translateY(-3px)}
+.proc-num{font-family:var(--font-display);font-size:3.5rem;color:rgba(245,158,11,.15);line-height:1;margin-bottom:.25rem}
+.proc-emoji{font-size:1.75rem;margin-bottom:.75rem}
+.proc-step h3{font-family:var(--font);font-size:1rem;font-weight:600;margin-bottom:.5rem;letter-spacing:0}
+.proc-step p{color:var(--txt2);font-size:.87rem;line-height:1.65}
+.proc-arrow{font-family:var(--font-display);font-size:2rem;color:rgba(245,158,11,.3);text-align:center;align-self:center}
+@media(min-width:900px){
+.process-row{flex-direction:row;align-items:flex-start}
+.proc-arrow{transform:rotate(0)}
+}
+
+/* TESTIMONIALS */
+.testi-track{overflow:hidden;padding:2rem 0;mask-image:linear-gradient(90deg,transparent 0%,black 8%,black 92%,transparent 100%)}
+.testi-row{display:flex;gap:1.5rem;width:max-content}
+.testi-card{width:360px;flex-shrink:0;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.75rem}
+.testi-stars{color:var(--accent);font-size:.95rem;letter-spacing:.1em;margin-bottom:1rem}
+.testi-q{color:var(--txt2);font-size:.88rem;line-height:1.7;margin-bottom:1.25rem;font-style:italic}
+.testi-auth{display:flex;align-items:center;gap:.9rem}
+.testi-av{background:var(--bg3);border:2px solid var(--border);overflow:hidden}
+.testi-auth strong{display:block;font-size:.88rem}
+.testi-auth span{color:var(--txt3);font-size:.78rem}
+
+/* FAQ */
+#faq-grid{grid-template-columns:1fr}
+@media(min-width:900px){#faq-grid{grid-template-columns:1fr 1.6fr}}
+.faq-list{display:flex;flex-direction:column;gap:.6rem}
+.faq-item{background:var(--card);border:1px solid var(--border);border-radius:10px;overflow:hidden;transition:border-color .3s}
+.faq-item.open{border-color:rgba(245,158,11,.4)}
+.faq-btn{width:100%;background:none;border:none;padding:1.2rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;color:var(--txt);font-family:var(--font);font-size:.95rem;font-weight:500;cursor:none;text-align:left}
+.faq-ico{flex-shrink:0;color:var(--accent);transition:transform .35s var(--ease)}
+.faq-item.open .faq-ico{transform:rotate(45deg)}
+.faq-body{max-height:0;overflow:hidden;transition:max-height .4s var(--ease)}
+.faq-inner{padding:0 1.5rem 1.25rem;color:var(--txt2);font-size:.88rem;line-height:1.7}
+.faq-item.open .faq-body{max-height:200px}
+
+/* CONTACT */
+.contact-grid{display:grid;gap:4rem;grid-template-columns:1fr}
+@media(min-width:900px){.contact-grid{grid-template-columns:1fr 1.5fr}}
+.contact-left{}
+.c-info{display:flex;flex-direction:column;gap:1rem;margin-bottom:2rem}
+.c-item{display:flex;align-items:flex-start;gap:.85rem;font-size:.88rem;color:var(--txt2)}
+.c-ico{width:34px;height:34px;background:rgba(245,158,11,.1);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--accent)}
+.c-item strong{display:block;font-size:.75rem;color:var(--txt3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.15rem}
+.soc-links{display:flex;gap:.6rem}
+.soc-link{width:38px;height:38px;background:var(--card);border:1px solid var(--border);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--txt3);transition:all .25s}
+.soc-link:hover{border-color:var(--accent);color:var(--accent);box-shadow:0 0 12px var(--glow)}
+.contact-form{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:2.5rem}
+.form-row{display:grid;grid-template-columns:1fr;gap:1rem;margin-bottom:1rem}
+@media(min-width:600px){.form-row{grid-template-columns:1fr 1fr}}
+.fg{display:flex;flex-direction:column;gap:.4rem}
+.fg label{font-size:.78rem;color:var(--txt3);letter-spacing:.06em;text-transform:uppercase;font-weight:500}
+.fg input,.fg select,.fg textarea{background:var(--bg2);border:1.5px solid var(--border);border-radius:8px;padding:.8rem 1rem;color:var(--txt);font-family:var(--font);font-size:.9rem;outline:none;transition:border-color .25s,box-shadow .25s;width:100%}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--glow)}
+.fg select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236B7280' d='M6 8L1 3h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center}
+.fg textarea{min-height:120px;resize:vertical}
+
+/* FOOTER */
+footer{background:var(--bg);border-top:1px solid var(--border);padding:4rem 0 0}
+.foot-grid{display:grid;grid-template-columns:1fr;gap:2.5rem;margin-bottom:3rem}
+@media(min-width:640px){.foot-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1024px){.foot-grid{grid-template-columns:1.6fr 1fr 1fr 1fr}}
+.foot-brand p{color:var(--txt3);font-size:.85rem;margin-top:.75rem;line-height:1.6;max-width:240px}
+.foot-col{display:flex;flex-direction:column;gap:.6rem}
+.foot-col h4{font-family:var(--font);font-weight:600;font-size:.88rem;color:var(--txt);margin-bottom:.4rem;letter-spacing:0}
+.foot-col a,.foot-col span{color:var(--txt3);font-size:.85rem;transition:color .2s}
+.foot-col a:hover{color:var(--accent)}
+.foot-bottom{border-top:1px solid var(--border);padding:1.25rem 0;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1rem}
+.foot-bottom p{color:var(--txt3);font-size:.82rem}
+.foot-bottom div{display:flex;gap:1.5rem}
+.foot-bottom a{color:var(--txt3);font-size:.82rem;transition:color .2s}
+.foot-bottom a:hover{color:var(--accent)}
+
+/* NAV CTA (show on scroll) */
+@media(min-width:900px){#nav-cta{display:inline-flex!important}}
+
+/* RESPONSIVE IMG PH */
+.img-ph img{display:none}
+</style>
+
+<script>
+(function(){
+/* ── CURSOR ── */
+const co=document.getElementById('c-out'),ci=document.getElementById('c-in');
+let mx=window.innerWidth/2,my=window.innerHeight/2,ox=mx,oy=my;
+const isTouch=!window.matchMedia('(pointer:fine)').matches;
+if(isTouch){co.style.display=ci.style.display='none';document.body.style.cursor='auto';}
+else{
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;ci.style.left=mx+'px';ci.style.top=my+'px';ci.style.opacity='1';co.style.opacity='1';});
+  document.addEventListener('mousedown',()=>co.classList.add('click'));
+  document.addEventListener('mouseup',()=>co.classList.remove('click'));
+  document.querySelectorAll('a,button,.tilt,.port-card').forEach(el=>{
+    el.addEventListener('mouseenter',()=>co.classList.add('hover'));
+    el.addEventListener('mouseleave',()=>co.classList.remove('hover'));
+  });
+  (function raf(){ox+=(mx-ox)*.12;oy+=(my-oy)*.12;co.style.left=ox+'px';co.style.top=oy+'px';requestAnimationFrame(raf);})();
+}
+
+/* ── PROGRESS BAR ── */
+const pb=document.getElementById('progress');
 window.addEventListener('scroll',()=>{
-  navbar.classList.toggle('scrolled', window.scrollY > 60);
+  const s=document.documentElement;
+  pb.style.transform='scaleX('+(s.scrollTop/(s.scrollHeight-s.clientHeight))+')';
 },{passive:true});
 
-// HAMBURGER
-const hamburger = document.getElementById('hamburger');
-const mobileMenu = document.getElementById('mobileMenu');
-hamburger.addEventListener('click',()=>{
-  const open = hamburger.classList.toggle('open');
-  mobileMenu.classList.toggle('open', open);
-  hamburger.setAttribute('aria-expanded', open);
-  document.body.style.overflow = open ? 'hidden' : '';
+/* ── NAVBAR ── */
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('s',scrollY>80),{passive:true});
+
+/* ── HAMBURGER ── */
+const hbg=document.getElementById('hbg'),mob=document.getElementById('mob-menu');
+hbg.addEventListener('click',()=>{
+  const o=hbg.classList.toggle('o');
+  mob.classList.toggle('o',o);
+  hbg.setAttribute('aria-expanded',o);
+  document.body.style.overflow=o?'hidden':'';
 });
-document.querySelectorAll('.mobile-link, .mobile-menu .btn').forEach(link=>{
-  link.addEventListener('click',()=>{
-    hamburger.classList.remove('open');
-    mobileMenu.classList.remove('open');
-    hamburger.setAttribute('aria-expanded','false');
-    document.body.style.overflow='';
+mob.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+  hbg.classList.remove('o');mob.classList.remove('o');
+  hbg.setAttribute('aria-expanded','false');document.body.style.overflow='';
+}));
+
+/* ── INTERSECTION OBSERVER ── */
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target);}});
+},{threshold:.12,rootMargin:'0px 0px -50px 0px'});
+document.querySelectorAll('.fu').forEach(el=>io.observe(el));
+
+/* ── COUNTER ANIMATION ── */
+const cio=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(!e.isIntersecting)return;
+    const el=e.target,target=+el.dataset.count,pre=el.dataset.prefix||'',suf=el.dataset.suffix||'',dur=2000,s0=performance.now();
+    const tick=now=>{
+      const t=Math.min((now-s0)/dur,1),ease=1-Math.pow(1-t,3);
+      el.textContent=pre+Math.round(ease*target)+suf;
+      if(t<1)requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+    cio.unobserve(el);
   });
+},{threshold:.5});
+document.querySelectorAll('[data-count]').forEach(el=>cio.observe(el));
+
+/* ── 3D TILT ── */
+document.querySelectorAll('.tilt').forEach(card=>{
+  card.addEventListener('mousemove',e=>{
+    const r=card.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+    card.style.transform=`perspective(900px) rotateY(${x*12}deg) rotateX(${-y*12}deg) scale(1.02)`;
+  });
+  card.addEventListener('mouseleave',()=>card.style.transform='');
 });
 
-// INTERSECTION OBSERVER — fade-in
-const observer = new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}});
-},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
-document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
+/* ── MAGNETIC BUTTONS ── */
+document.querySelectorAll('.magnetic').forEach(btn=>{
+  btn.addEventListener('mousemove',e=>{
+    const r=btn.getBoundingClientRect(),x=e.clientX-r.left-r.width/2,y=e.clientY-r.top-r.height/2;
+    btn.style.transform=`translate(${x*.25}px,${y*.25}px)`;
+  });
+  btn.addEventListener('mouseleave',()=>{btn.style.transform='';});
+});
 
-// FAQ ACCORDION
+/* ── PORTFOLIO DRAG SCROLL ── */
+const pt=document.getElementById('portTrack');
+if(pt){
+  let down=false,sx,sl;
+  pt.addEventListener('mousedown',e=>{down=true;sx=e.pageX-pt.offsetLeft;sl=pt.scrollLeft;pt.style.cursor='grabbing';});
+  document.addEventListener('mouseup',()=>{down=false;pt.style.cursor='grab';});
+  pt.addEventListener('mousemove',e=>{if(!down)return;e.preventDefault();pt.scrollLeft=sl-(e.pageX-pt.offsetLeft-sx)*1.5;});
+}
+
+/* ── BEFORE/AFTER SLIDER ── */
+const slider=document.getElementById('baSlider'),handle=document.getElementById('baHandle');
+if(slider&&handle){
+  let drag=false;
+  const set=x=>{
+    const r=slider.getBoundingClientRect(),p=Math.max(5,Math.min(95,(x-r.left)/r.width*100));
+    handle.style.left=p+'%';
+    const before=slider.querySelector('.ba-before'),after=slider.querySelector('.ba-after');
+    before.style.clipPath=`inset(0 ${100-p}% 0 0)`;
+    after.style.clipPath=`inset(0 0 0 ${p}%)`;
+  };
+  /* init */
+  const before=slider.querySelector('.ba-before'),after=slider.querySelector('.ba-after');
+  before.style.position=after.style.position='absolute';
+  before.style.inset=after.style.inset='0';
+  before.style.clipPath='inset(0 50% 0 0)';
+  after.style.clipPath='inset(0 0 0 50%)';
+  slider.style.position='relative';
+  handle.style.left='50%';
+  handle.addEventListener('mousedown',e=>{drag=true;e.preventDefault();});
+  document.addEventListener('mousemove',e=>{if(drag)set(e.clientX);});
+  document.addEventListener('mouseup',()=>drag=false);
+  handle.addEventListener('touchstart',e=>{drag=true;e.preventDefault();},{passive:false});
+  document.addEventListener('touchmove',e=>{if(drag)set(e.touches[0].clientX);},{passive:true});
+  document.addEventListener('touchend',()=>drag=false);
+}
+
+/* ── FAQ ── */
 document.querySelectorAll('.faq-btn').forEach(btn=>{
   btn.addEventListener('click',()=>{
-    const item = btn.closest('.faq-item');
-    const isOpen = item.classList.contains('open');
-    document.querySelectorAll('.faq-item.open').forEach(i=>{
-      i.classList.remove('open');
-      i.querySelector('.faq-btn').setAttribute('aria-expanded','false');
-    });
-    if(!isOpen){
-      item.classList.add('open');
-      btn.setAttribute('aria-expanded','true');
-    }
+    const item=btn.closest('.faq-item'),open=item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i=>{i.classList.remove('open');i.querySelector('.faq-btn').setAttribute('aria-expanded','false');});
+    if(!open){item.classList.add('open');btn.setAttribute('aria-expanded','true');}
   });
 });
 
-// FORM SUBMIT (front-end only)
-document.querySelector('.contact-form').addEventListener('submit',e=>{
+/* ── FORM ── */
+document.querySelector('.contact-form')?.addEventListener('submit',e=>{
   e.preventDefault();
-  const btn = e.target.querySelector('[type=submit]');
-  btn.textContent='✓ Message envoyé !';
-  btn.style.background='#22c55e';
+  const btn=e.target.querySelector('button[type=submit]');
+  btn.textContent='✓ Message envoyé !';btn.style.background='#22c55e';
   setTimeout(()=>{btn.textContent='Envoyer ma demande';btn.style.background='';e.target.reset();},3000);
 });
+
+/* ── PAUSE TESTI MARQUEE ON HOVER ── */
+document.querySelectorAll('.testi-row').forEach(r=>{
+  r.addEventListener('mouseenter',()=>r.style.animationPlayState='paused');
+  r.addEventListener('mouseleave',()=>r.style.animationPlayState='running');
+});
+})();
 </script>
 </body>
 </html>
